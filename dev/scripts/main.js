@@ -1,21 +1,5 @@
 // get certain categories. look for the ids of the catorgories we want out of 100 questions 
-    // australia = 5
-    // it's australia, mate = 
-    // a visit to australia = 
-  
-    // the internet 
-    // internet slang 
-    // internet shorthand
-    // internet jargon
-    // hiding on the internet
-    // internet history 
-    // free stuff on the internet 
-    // on the internet 
-    // internet lingo
-    // 3 letter words 
-    // food 
-    // Potpourriiii
-    
+
     // 3-letter words = 105
     // pop music =
     // world capitals = 78
@@ -31,6 +15,8 @@
     // stupid answers = 136
     // food facts = 832
     // the movies = 309
+
+// 
     
 // filter the values of them so the user can choose value 
 // make sure the value we want is there so the user has choices 
@@ -40,19 +26,25 @@
 //
 
 
-console.log("linked");
-const app ={};
+const app = {};
 
-app.questionList =[];
+app.userCategoryChoice = "";
+
+app.questionList = [];
+
+app.allCategories = [
+    {popMusic: 770}
+]
+
 app.foodFacts = 832;
 app.movies= 309;
+// app.popMusic = 770;
 app.stupidAnswers = 136;
-app.animals =21;
+app.animals = 21;
 app.countriesOfTheWorld = 1361;
 app.musicalInstruments = 184;
 app.fruitsAndVegetables = 777;
 app.actresses = 612;
-app.popMusic = 770;
 app.threeLetterWords = 105;
 app.worldCapitals = 78;
 app.mythology = 680;
@@ -61,15 +53,13 @@ app.rhymeTime = 215;
 app.nurseryRhymes = 37; 
 app.music = 70;
 
-
-
 app.getClues = function(categoryID){
     $.ajax({
         url: "http://jservice.io/api/clues",
         method: "GET",
         data: {
             count: 100,
-            value: 100,
+            // value: 100,
             category: categoryID
         }
     })
@@ -96,11 +86,36 @@ app.getClues = function(categoryID){
     // });
 }
 
+// app.displayCategories() = function(){
+
+// }
+
+
+app.events = function(){
+    $(".category").on("click", function(e){
+        e.preventDefault();
+        console.log('yay');
+        app.userCategoryChoice = $(".category:checked").val();
+        console.log(app.userCategoryChoice);
+
+        // if user choice is equal to music display music 
+        // loop into new array 
+        // match userinput to the category array name 
+        // then filter the questions with value 
+        
+    })
+}
+
 app.init = function(){
-    app.getClues(app.countriesOfTheWorld);
     // app.getClues(app.food);
     // app.getClues(app.movies);
     // app.getClues(app.stupidAnswers);
+    app.getClues(app.animals);
+    app.getClues(app.popMusic);
+    app.getClues(app.mythology);
+    app.getClues(app.worldCapitals);
+    app.getClues(app.musicalInstruments);
+    app.events();
     // app.getClues();
 }
 
