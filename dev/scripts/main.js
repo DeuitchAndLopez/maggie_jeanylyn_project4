@@ -137,35 +137,37 @@ app.displayQuestion = function (questions) {
     const value = $("<h4>").text(app.userValueChoice);
     const question = $("<h2>").text(questions[randomNum].question);
 
-    
-    // console.log(app.arrayOfAnswers);
-    
-    // app.arrayOfAnswers.concat(app.wrongAnswers)
-    let result = []
+    let result=[];
+
     app.wrongAnswers = function (res, neededElements) {
         // let result = [];
+        console.log(res);
+        const filteredAnswers = res.map((answer)=> {
+            return answer.answer;
+        })
         for (let i = 0; i < neededElements; i++) {
-            result.push(res[Math.floor(Math.random() * res.length)]);
+            result.push(filteredAnswers[Math.floor(Math.random() * res.length)]);
         }
+        
         console.log(result);
         result.forEach((answer) => {
-            $(".answerContainer").append(`<input type = "radio" name= "wrongAnswer" value=${answer.answer} id="${answer.answer} class="answers"><label for=${answer.answer}>${answer.answer}</label>`)
+            $(".answerContainer").append(`<input type = "radio" name= "wrongAnswer" value=${answer} id="${answer} class="answers"><label for=${answer}>${answer}</label>`)
             // console.log(answer.answer);
         })
         // return result;
     }
     
     const displayAnswers = function() {
-
         // DISPLAY CORRECT ANSWER 
+        //create an object with a key of answer and value of key shuold be app.correctanswer. 
         app.correctAnswer = questions[randomNum].answer;
-
-        result.push(app.correctAnswer)
-            // const answer = $("<h2>").text(questions[randomNum].answer);    
-        $(".answerContainer").append(`<input type = "radio" name= "correctAnswer" value=${app.correctAnswer} id="${app.correctAnswer} class="answers"><label for=${app.correctAnswer}>${app.correctAnswer}</label>`)
-            // GET RANDOM ANSWERS FROM SECOND AJAX CALL 
-            app.getAnswers(app.userCategoryChoice);
-        }
+        // const answer = $("<h2>").text(questions[randomNum].answer);    
+        // $(".answerContainer").append(`<input type = "radio" name= "correctAnswer" value=${app.correctAnswer} id="${app.correctAnswer} class="answers"><label for=${app.correctAnswer}>${app.correctAnswer}</label>`)
+        result.push(app.correctAnswer);
+        console.log(app.correctAnswer);
+        // GET RANDOM ANSWERS FROM SECOND AJAX CALL 
+        app.getAnswers(app.userCategoryChoice);
+    }
     
 
     $(".questionContainer").append(title, value, question);
