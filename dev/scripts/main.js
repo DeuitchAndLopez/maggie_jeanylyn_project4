@@ -43,7 +43,7 @@
 
 const app = {};
 
-app.userCategoryChoice = "";
+// app.userCategoryChoice = "hello";
 
 app.userValueChoice = "";
 
