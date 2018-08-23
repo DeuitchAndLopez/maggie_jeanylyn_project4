@@ -155,6 +155,8 @@ app.events = function(){
         console.log(app.userValueChoice);
     // USING THE VALUE FROM INPUT TO REPLACE THE VALUES IN AJAX
         app.getClues(app.userCategoryChoice, app.userValueChoice);
+        // console.log(app.getClues(app.userCategoryChoice());
+        
     })
 
     $(".submitDifficulty").on("click", function (e) {
