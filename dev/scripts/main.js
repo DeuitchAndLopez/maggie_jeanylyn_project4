@@ -68,6 +68,9 @@ app.value500 = 500;
 app.value800 = 800;
 app.value1000 = 1000;
 
+// ==============
+// GETTING STUFF FROM THE API
+// ==============
 
 app.getClues = function (categoryID, valueID){
     $.ajax({
@@ -136,9 +139,9 @@ app.events = function(){
 
 // DISPLAYING A RANDOM QUESTION BASED ON INPUT
 app.display = function (questions) {
-    // console.log(questions);
-    console.log(questions.length);
-    let randomNum = Math.floor(Math.random() * questions.length) + 1;
+    console.log(questions);
+    // console.log(questions.length);
+    let randomNum = Math.floor(Math.random() * questions.length);
     console.log(randomNum);
     console.log(questions[randomNum]);
     const title = $("<h3>").text(questions[randomNum].category.title);
