@@ -1,22 +1,5 @@
 // get certain categories. look for the ids of the catorgories we want out of 100 questions 
-// music = 70 
-// rhyme time = 215
-// countries of the world = 1361
 
-// stupid answers = 136
-// food facts = 832
-
-
-    // 3-letter words = 105
-    // double talk = 89
-    // nursery rhymes = 37
-    // mythology =  680
-    // musical instruments = 184
-    // world capitals = 78
-    // fruits & vegetables = 777
-    // animals = 21
-    // the movies = 309
-    // pop music =
 
 // filter the values of them so the user can choose value 
 // make sure the value we want is there so the user has choices 
@@ -43,13 +26,6 @@
 
 const app = {};
 
-// app.userCategoryChoice = "hello";
-
-app.userValueChoice = "";
-
-// app.allCategories = [
-//     {popMusic: 770}
-// ]
 
 app.foodFacts = 832;
 app.movies= 309;
@@ -92,40 +68,11 @@ app.getClues = function (categoryID, valueID){
             count: 100,
             value: valueID,
             category: categoryID
-            // value: app.userValueChoice,
-            // category: 21
         }
     })
     .then((res) => {
-      
-        
-        // app.init(res)
-        app.display(res);
-        // return res
-        // console.log(res);
-
-        // res.forEach((question) => {
-        //     console.log(question.question);
-        //     // console.log(res.length);
-        // })
-        
-        // app.category2.push(res2);
-        // return res2
-        // res
-        // .filter((singleQuestion) => singleQuestion.category.title === "mov")
-        // .forEach((singleQuestion) => {
-        //     console.log(singleQuestion.question);
-        //     app.questionList.push(singleQuestion);
-        //     });    
+        app.displayQuestion(res);        
         });
-        // app.questionList.filter((categories)=> categories.category.title === "let's play some basketball")
-        // .forEach((categories) => {
-        //     console.log(categories.question);
-            
-        // })
-        // console.log(app.questionList);
-        // $(".question").append(`<h1>${res[0].question}</h1>`)
-    // });
 }
 
 
@@ -136,7 +83,6 @@ app.getClues = function (categoryID, valueID){
 app.events = function(){
 
     $(".category").on("click", function(){
-        // e.preventDefault();
         app.userCategoryChoice = $(".category:checked").val();
         console.log(app.userCategoryChoice);
     })    
@@ -146,11 +92,9 @@ app.events = function(){
         e.preventDefault();
         $(".categoryContainer").addClass("hide");
         $(".valueContainer").removeClass("hide");
-        // $(".categoryContainer").empty();
     })
 
     $(".value").on("click", function(){
-        // e.preventDefault();
         app.userValueChoice = $(".value:checked").val();
         console.log(app.userValueChoice);
     // USING THE VALUE FROM INPUT TO REPLACE THE VALUES IN AJAX
@@ -161,36 +105,35 @@ app.events = function(){
         e.preventDefault();
         $(".valueContainer").addClass("hide");
         $(".questionContainer").removeClass("hide");
-        // $(".categoryContainer").empty();
     })
 } // END OF EVENT FUNCTION
 
 // DISPLAYING A RANDOM QUESTION BASED ON INPUT
-app.display = function (questions) {
-    console.log(questions);
-    // console.log(questions.length);
+
+
+app.displayQuestion = function (questions) {
     let randomNum = Math.floor(Math.random() * questions.length);
-    console.log(randomNum);
-    console.log(questions[randomNum]);
+
     const title = $("<h3>").text(questions[randomNum].category.title);
     const value = $("<h4>").text(app.userValueChoice);
     const question = $("<h2>").text(questions[randomNum].question);
     //this might need to be put into a button
-    const answer = $("<h2>").text(questions[randomNum].answer);
+    const displayAnswers = function() {
+        app.correctAnswer = questions[randomNum].answer;
+            // const answer = $("<h2>").text(questions[randomNum].answer);    
+
+                $(".answerContainer").append(`<input type = "radio" name= "correctAnswer" value=${app.correctAnswer} id="${app.correctAnswer} class="answers"><label for=${app.correctAnswer}>${app.correctAnswer}</label>`)
+
+        }
     
-    // questions.forEach((item) => {
-    //     console.log(item);
-    //     // console.log(res.length);
-    // })
 
-    $(".questionContainer").append(title, value, question, answer);
-
+    $(".questionContainer").append(title, value, question);
+    displayAnswers();
 }
 
 app.init = function(){
     app.events();
     $(".categoryContainer").removeClass("hide");
-    // app.getClues(app.animals, app.userValueChoice);
 }
 
 
