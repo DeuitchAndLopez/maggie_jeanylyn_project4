@@ -1,5 +1,4 @@
 // get certain categories. look for the ids of the catorgories we want out of 100 questions 
-
     // 3-letter words = 105
     // pop music =
     // world capitals = 78
@@ -16,21 +15,25 @@
     // food facts = 832
     // the movies = 309
 
-// 
-    
 // filter the values of them so the user can choose value 
 // make sure the value we want is there so the user has choices 
     // 100, 200, 300 = easy 
     // 400, 500, 600 = medium 
     // 800, 1000 = hard 
-//
 
+
+// ***can we filter through the inputs so we only get valid questions?***
+    // can do this in the array we're given back 
+// display answer and the choices users can pick from for multiple choice 
+    // maybe choose the answers from multiple choice with Math.random just get 5 randome answers in the category doesnt have to be specific to value but could be from the larger array of 100 objects 
+// make the random multiple choice choises and the correct answer into a button on the page 
+// if user chooses the the right answer then add value to score 
 
 const app = {};
 
 // app.userCategoryChoice = "hello";
 
-// app.questionList = [];
+app.userValueChoice = "";
 
 // app.allCategories = [
 //     {popMusic: 770}
@@ -53,25 +56,55 @@ app.rhymeTime = 215;
 app.nurseryRhymes = 37; 
 app.music = 70;
 
-app.getClues = function(categoryID){
+// 100, 200, 300 = easy 
+// 400, 500, 600 = medium 
+// 800, 1000 = hard 
+
+app.value100 = 100;
+app.value200 = 200;
+app.value300 = 300;
+app.value400 = 400;
+app.value500 = 500;
+app.value800 = 800;
+app.value1000 = 1000;
+
+// ==============
+// GETTING STUFF FROM THE API
+// ==============
+
+app.getClues = function (categoryID, valueID){
     $.ajax({
         url: "http://jservice.io/api/clues",
         method: "GET",
         data: {
             count: 100,
-            // value: 100,
+            value: valueID,
             category: categoryID
+            // value: app.userValueChoice,
+            // category: 21
         }
     })
     .then((res) => {
-        console.log(res);
+      
+        
+        // app.init(res)
+        app.display(res);
+        // return res
+        // console.log(res);
+
+        // res.forEach((question) => {
+        //     console.log(question.question);
+        //     // console.log(res.length);
+        // })
+        
+        // app.category2.push(res2);
+        // return res2
         // res
         // .filter((singleQuestion) => singleQuestion.category.title === "mov")
         // .forEach((singleQuestion) => {
         //     console.log(singleQuestion.question);
         //     app.questionList.push(singleQuestion);
         //     });    
-            
         });
         // app.questionList.filter((categories)=> categories.category.title === "let's play some basketball")
         // .forEach((categories) => {
@@ -79,51 +112,59 @@ app.getClues = function(categoryID){
             
         // })
         // console.log(app.questionList);
-
-        
         // $(".question").append(`<h1>${res[0].question}</h1>`)
-        
     // });
 }
 
-// app.displayCategories() = function(){
 
-// }
-
-
+// ===============
+// USER CHOOSES CATEGORY AND VALUE
+// ===============
 app.events = function(){
+
     $(".category").on("click", function(e){
         e.preventDefault();
-        // console.log('yay');
-        // app.userCategoryChoice = "app." + $(".category:checked").val();
-
         app.userCategoryChoice = $(".category:checked").val();
-        // console.log(app.userCategoryChoice)
-
-
-
-        // if user choice is equal to music display music 
-        // loop into new array 
-        // match userinput to the category array name 
-        // then filter the questions with value 
-        // console.log(app.userCategoryChoice);
-
-        // app.getClues(userCategoryChoice);
         console.log(app.userCategoryChoice);
-        app.getClues(app.userCategoryChoice);
-        // 
-        
+    })    
 
+    $(".value").on("click", function(e){
+        e.preventDefault();
+        app.userValueChoice = $(".value:checked").val();
+        console.log(app.userValueChoice);
+    // USING THE VALUE FROM INPUT TO REPLACE THE VALUES IN AJAX
+        app.getClues(app.userCategoryChoice, app.userValueChoice);
     })
+
+}
+
+// DISPLAYING A RANDOM QUESTION BASED ON INPUT
+app.display = function (questions) {
+    console.log(questions);
+    // console.log(questions.length);
+    let randomNum = Math.floor(Math.random() * questions.length);
+    console.log(randomNum);
+    console.log(questions[randomNum]);
+    const title = $("<h3>").text(questions[randomNum].category.title);
+    const value = $("<h4>").text(app.userValueChoice);
+    const question = $("<h2>").text(questions[randomNum].question);
+    //this might need to be put into a button
+    const answer = $("<h2>").text(questions[randomNum].answer);
+    
+    // questions.forEach((item) => {
+    //     console.log(item);
+    //     // console.log(res.length);
+    // })
+
+    $(".questionContainer").append(title, value, question, answer);
 
 }
 
 app.init = function(){
     app.events();
-    // console.log(app.userCategoryChoice);
-
-    // app.getClues();
+    // app.getClues(app.animals, app.userValueChoice);
 }
+
 
 $(function(){
     app.init();
