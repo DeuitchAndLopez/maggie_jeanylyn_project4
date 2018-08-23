@@ -91,9 +91,6 @@ app.getAnswers = function (categoryID) {
     });
 }
 
-
-
-
 // ===============
 // USER CHOOSES CATEGORY AND VALUE
 // ===============
@@ -140,8 +137,13 @@ app.displayQuestion = function (questions) {
     const value = $("<h4>").text(app.userValueChoice);
     const question = $("<h2>").text(questions[randomNum].question);
 
+    
+    // console.log(app.arrayOfAnswers);
+    
+    // app.arrayOfAnswers.concat(app.wrongAnswers)
+    let result = []
     app.wrongAnswers = function (res, neededElements) {
-        let result = [];
+        // let result = [];
         for (let i = 0; i < neededElements; i++) {
             result.push(res[Math.floor(Math.random() * res.length)]);
         }
@@ -150,13 +152,15 @@ app.displayQuestion = function (questions) {
             $(".answerContainer").append(`<input type = "radio" name= "wrongAnswer" value=${answer.answer} id="${answer.answer} class="answers"><label for=${answer.answer}>${answer.answer}</label>`)
             // console.log(answer.answer);
         })
-        return result;;
+        // return result;
     }
-
+    
     const displayAnswers = function() {
 
         // DISPLAY CORRECT ANSWER 
         app.correctAnswer = questions[randomNum].answer;
+
+        result.push(app.correctAnswer)
             // const answer = $("<h2>").text(questions[randomNum].answer);    
         $(".answerContainer").append(`<input type = "radio" name= "correctAnswer" value=${app.correctAnswer} id="${app.correctAnswer} class="answers"><label for=${app.correctAnswer}>${app.correctAnswer}</label>`)
             // GET RANDOM ANSWERS FROM SECOND AJAX CALL 
