@@ -75,22 +75,24 @@ app.getClues = function (categoryID, valueID){
     });
 }
 
-// app.getAnswers = function (categoryID) {
-//     $.ajax({
-//         url: "http://jservice.io/api/clues",
-//         method: "GET",
-//         data: {
-//             count: 100,
-//             category: categoryID
-//         }
-//     })
-//         .then((res1) => {
-//             displayAnswers(res1)
-//             // displayAnswers(res);
-//             // console.log(res);
-//             // console.log(res[0].answer, res[1].answer, res[2].answer, res[3].answer);
-//     });
-// }
+app.getAnswers = function (categoryID) {
+    $.ajax({
+        url: "http://jservice.io/api/clues",
+        method: "GET",
+        data: {
+            count: 100,
+            category: categoryID
+        }
+    })
+        .then((res) => {
+            // console.log(res[1], res[5].answer);
+            app.wrongAnswers(res, 4);
+            
+    });
+}
+
+
+
 
 // ===============
 // USER CHOOSES CATEGORY AND VALUE
@@ -137,44 +139,32 @@ app.displayQuestion = function (questions) {
     const title = $("<h3>").text(questions[randomNum].category.title);
     const value = $("<h4>").text(app.userValueChoice);
     const question = $("<h2>").text(questions[randomNum].question);
-    $(".questionContainer").append(title, value, question);
-    // //this might need to be put into a button
 
-    app.getAnswers = function (categoryID) {
-        $.ajax({
-            url: "http://jservice.io/api/clues",
-            method: "GET",
-            data: {
-                count: 100,
-                category: categoryID
-            }
+    app.wrongAnswers = function (res, neededElements) {
+        let result = [];
+        for (let i = 0; i < neededElements; i++) {
+            result.push(res[Math.floor(Math.random() * res.length)]);
+        }
+        console.log(result);
+        result.forEach((answer) => {
+            $(".answerContainer").append(`<input type = "radio" name= "wrongAnswer" value=${answer.answer} id="${answer.answer} class="answers"><label for=${answer.answer}>${answer.answer}</label>`)
+            // console.log(answer.answer);
         })
-            .then((res1) => {
-                displayAnswers(res1)
-                // displayAnswers(res);
-                console.log(res);
-                // console.log(res[0].answer, res[1].answer, res[2].answer, res[3].answer);
-            });
+        return result;;
     }
 
-    //WHERE WE'RE DISPLAYING OUT ANSWERS 
     const displayAnswers = function() {
-        // console.log(answers);
+
         // DISPLAY CORRECT ANSWER 
         app.correctAnswer = questions[randomNum].answer;
             // const answer = $("<h2>").text(questions[randomNum].answer);    
         $(".answerContainer").append(`<input type = "radio" name= "correctAnswer" value=${app.correctAnswer} id="${app.correctAnswer} class="answers"><label for=${app.correctAnswer}>${app.correctAnswer}</label>`)
             // GET RANDOM ANSWERS FROM SECOND AJAX CALL 
-            // app.getAnswers(app.userCategoryChoice);
-
-        // let randomNumOne = Math.floor(Math.random() * answers.length);
-        // let randomNumTwo = Math.floor(Math.random() * answers.length);
-        // let randomNumThree = Math.floor(Math.random() * answers.length);
-        // let randomNumFour = Math.floor(Math.random() * answers.length);
-
-        // console.log(randomNumOne, randomNumTwo, randomNumThree, randomNumFour);        
+            app.getAnswers(app.userCategoryChoice);
         }
     
+
+    $(".questionContainer").append(title, value, question);
     displayAnswers();
 } // end of displayQuestions function
 
