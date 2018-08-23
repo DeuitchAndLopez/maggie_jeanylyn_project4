@@ -28,17 +28,17 @@
 
 const app = {};
 
-app.userCategoryChoice = "";
+// app.userCategoryChoice = "hello";
 
-app.questionList = [];
+// app.questionList = [];
 
-app.allCategories = [
-    {popMusic: 770}
-]
+// app.allCategories = [
+//     {popMusic: 770}
+// ]
 
 app.foodFacts = 832;
 app.movies= 309;
-// app.popMusic = 770;
+app.popMusic = 770;
 app.stupidAnswers = 136;
 app.animals = 21;
 app.countriesOfTheWorld = 1361;
@@ -94,28 +94,34 @@ app.getClues = function(categoryID){
 app.events = function(){
     $(".category").on("click", function(e){
         e.preventDefault();
-        console.log('yay');
+        // console.log('yay');
+        // app.userCategoryChoice = "app." + $(".category:checked").val();
+
         app.userCategoryChoice = $(".category:checked").val();
-        console.log(app.userCategoryChoice);
+        // console.log(app.userCategoryChoice)
+
+
 
         // if user choice is equal to music display music 
         // loop into new array 
         // match userinput to the category array name 
         // then filter the questions with value 
+        // console.log(app.userCategoryChoice);
+
+        // app.getClues(userCategoryChoice);
+        console.log(app.userCategoryChoice);
+        app.getClues(app.userCategoryChoice);
+        // 
         
+
     })
+
 }
 
 app.init = function(){
-    // app.getClues(app.food);
-    // app.getClues(app.movies);
-    // app.getClues(app.stupidAnswers);
-    app.getClues(app.animals);
-    app.getClues(app.popMusic);
-    app.getClues(app.mythology);
-    app.getClues(app.worldCapitals);
-    app.getClues(app.musicalInstruments);
     app.events();
+    // console.log(app.userCategoryChoice);
+
     // app.getClues();
 }
 
