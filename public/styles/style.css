@@ -134,3 +134,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 html {
   font-size: 62.5%;
   color: green; }
+
+.hide {
+  display: none; }

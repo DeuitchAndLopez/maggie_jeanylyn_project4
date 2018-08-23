@@ -1,19 +1,22 @@
 // get certain categories. look for the ids of the catorgories we want out of 100 questions 
+// music = 70 
+// rhyme time = 215
+// countries of the world = 1361
+
+// stupid answers = 136
+// food facts = 832
+
+
     // 3-letter words = 105
-    // pop music =
-    // world capitals = 78
-    // mythology =  680
     // double talk = 89
     // nursery rhymes = 37
-    // fruits & vegetables = 777
-    // music = 70 
-    // rhyme time = 215
+    // mythology =  680
     // musical instruments = 184
-    // countries of the world = 1361
+    // world capitals = 78
+    // fruits & vegetables = 777
     // animals = 21
-    // stupid answers = 136
-    // food facts = 832
     // the movies = 309
+    // pop music =
 
 // filter the values of them so the user can choose value 
 // make sure the value we want is there so the user has choices 
@@ -22,12 +25,21 @@
     // 800, 1000 = hard 
 
 
+// display all categories 
+// update the radio buttons
+// add submit button 
+// remove buttons when submit is pressed 
+// display question 
 // ***can we filter through the inputs so we only get valid questions?***
     // can do this in the array we're given back 
+    // filter through the array? 
 // display answer and the choices users can pick from for multiple choice 
     // maybe choose the answers from multiple choice with Math.random just get 5 randome answers in the category doesnt have to be specific to value but could be from the larger array of 100 objects 
 // make the random multiple choice choises and the correct answer into a button on the page 
 // if user chooses the the right answer then add value to score 
+
+// stretch goal 
+// remove possible elements that are around answers 
 
 const app = {};
 
@@ -117,25 +129,41 @@ app.getClues = function (categoryID, valueID){
 }
 
 
+
 // ===============
 // USER CHOOSES CATEGORY AND VALUE
 // ===============
 app.events = function(){
 
-    $(".category").on("click", function(e){
-        e.preventDefault();
+    $(".category").on("click", function(){
+        // e.preventDefault();
         app.userCategoryChoice = $(".category:checked").val();
         console.log(app.userCategoryChoice);
     })    
 
-    $(".value").on("click", function(e){
+    // When user submits, clear html and display value choices 
+    $(".submitCategory").on("click", function(e){
         e.preventDefault();
+        $(".categoryContainer").addClass("hide");
+        $(".valueContainer").removeClass("hide");
+        // $(".categoryContainer").empty();
+    })
+
+    $(".value").on("click", function(){
+        // e.preventDefault();
         app.userValueChoice = $(".value:checked").val();
         console.log(app.userValueChoice);
     // USING THE VALUE FROM INPUT TO REPLACE THE VALUES IN AJAX
         app.getClues(app.userCategoryChoice, app.userValueChoice);
     })
-}
+
+    $(".submitDifficulty").on("click", function (e) {
+        e.preventDefault();
+        $(".valueContainer").addClass("hide");
+        $(".questionContainer").removeClass("hide");
+        // $(".categoryContainer").empty();
+    })
+} // END OF EVENT FUNCTION
 
 // DISPLAYING A RANDOM QUESTION BASED ON INPUT
 app.display = function (questions) {
@@ -161,6 +189,7 @@ app.display = function (questions) {
 
 app.init = function(){
     app.events();
+    $(".categoryContainer").removeClass("hide");
     // app.getClues(app.animals, app.userValueChoice);
 }
 

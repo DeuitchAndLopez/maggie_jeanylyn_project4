@@ -23,13 +23,13 @@ CHOOSE CATEGORY AND VALUE
 CATEGORY CHOICE
 =============== -->
 
-    <section>
+    <section class="categoryContainer hide">
         <form class="categoryChoice">
             <label for="worldCapitals">World Capitals</label>
             <input type="radio" name="category" value="78" id="worldCapitals" class="category">
 
-            <label for="music">Music</label>
-            <input type="radio" name="category" value="70" id="music" class="category">
+            <label for="animals">Animals</label>
+            <input type="radio" name="category" value="21" id="animals" class="category">
 
             
             <label for="musicalInstruments">Musical Instruments</label>
@@ -38,8 +38,25 @@ CATEGORY CHOICE
             <label for="mythology">Mythology</label>
             <input type="radio" name="category" value="680" id="mythology" class="category">
             
-            <label for="animals">Animals</label>
-            <input type="radio" name="category" value="21" id="animals" class="category">
+            <label for="threeLetterWords">3-Letter Words</label>
+            <input type="radio" name="category" value="105" id="threeLetterWords" class="category">
+            <!-- ======= -->
+            <label for="doubleTalk">Double Talk</label>
+            <input type="radio" name="category" value="89" id="doubleTalk" class="category">
+
+            <label for="nurseryRhymes">Nursery Rhymes</label>
+            <input type="radio" name="category" value="37" id="nurseryRhymes" class="category">
+
+            <label for="fruitsAndVegetables">Fruits and Vegetables</label>
+            <input type="radio" name="category" value="777" id="fruitsAndVegetables" class="category">
+
+            <label for="movies">Movies</label>
+            <input type="radio" name="category" value="309" id="movies" class="category">
+
+            <label for="music">Pop Music</label>
+            <input type="radio" name="category" value="770" id="music" class="category">
+
+            <input type="submit" value="Submit Choice" class="submitCategory">
         </form>
     </section>
 
@@ -47,7 +64,7 @@ CATEGORY CHOICE
 VALUE CHOICE    
 =============== -->
 
-    <section>
+    <section class="valueContainer hide">
         <form class="valueChoice">
             <label for="two">200</label>
             <input type="radio" name="value" value="200" id="two" class="value">
@@ -63,6 +80,8 @@ VALUE CHOICE
 
             <label for="ten">1000</label>
             <input type="radio" name="value" value="1000" id="ten" class="value">
+
+            <input type="submit" value="Submit Difficulty" class="submitDifficulty">
         </form>
     </section>
 
@@ -70,7 +89,7 @@ VALUE CHOICE
 DISPLAY TITLE, VALUE AND QUESTION 
 =============== -->
 
-    <section class="questionContainer">
+    <section class="questionContainer hide">
         <h3 class="title"></h3>
         <h4 class="value"></h4>
         <h2 class="question"></h2>
