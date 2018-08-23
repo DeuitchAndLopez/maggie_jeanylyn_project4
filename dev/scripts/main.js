@@ -135,8 +135,8 @@ app.getClues = function (categoryID, valueID){
 // ===============
 app.events = function(){
 
-    $(".category").on("click", function(e){
-        e.preventDefault();
+    $(".category").on("click", function(){
+        // e.preventDefault();
         app.userCategoryChoice = $(".category:checked").val();
         console.log(app.userCategoryChoice);
     })    
@@ -149,8 +149,8 @@ app.events = function(){
         // $(".categoryContainer").empty();
     })
 
-    $(".value").on("click", function(e){
-        e.preventDefault();
+    $(".value").on("click", function(){
+        // e.preventDefault();
         app.userValueChoice = $(".value:checked").val();
         console.log(app.userValueChoice);
     // USING THE VALUE FROM INPUT TO REPLACE THE VALUES IN AJAX
