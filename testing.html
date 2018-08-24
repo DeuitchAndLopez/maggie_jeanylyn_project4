@@ -59,7 +59,10 @@
                 });
 
         }
-
+             let re = /<\/?[\w\s="/.':;#-\/\?]+>|[\/\\:+"#]+/gi
+                var result = '<i =//>he/#llo\\</i>\ ffe/af"""';
+                var newResult = result.replace(re, '');
+                console.log(newResult); 
         // getClues();
 
         //we don't want answers containing
