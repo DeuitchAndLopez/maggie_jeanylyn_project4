@@ -17,10 +17,19 @@
     // can do this in the array we're given back 
     // filter through the array? 
 // display answer and the choices users can pick from for multiple choice 
-// make the random multiple choice choices and the correct answer into a button on the page 
+    // maybe choose the answers from multiple choice with Math.random just get 5 randome answers in the category doesnt have to be specific to value but could be from the larger array of 100 objects 
+// make the random multiple choice choises and the correct answer into a button on the page 
 
+// maybe choose the answers from multiple choice with Math.random just get 5 randome answers in the category doesnt have to be specific to value but could be from the larger array of 100 objects
+// if user chooses the the right answer then add value to score
+// link the value on click or submit
+// make a timer
+// add score
+// next question empty everything and display everything
+//timer will run out
+// display Times Up and final score
+// play again button
 
-// maybe choose the answers from multiple choice with Math.random just get 5 random answers in the category doesnt have to be specific to value but could be from the larger array of 100 objects 
 // if user chooses the the right answer then add value to score 
 // link the value on click or submit 
 // make a timer 
@@ -29,6 +38,9 @@
 //timer will run out 
 // display Times Up and final score 
 // play again button 
+
+
+
 
 // stretch goal 
 // remove possible elements that are around answers 
@@ -108,7 +120,7 @@ app.getAnswers = function (categoryID) {
     })
         .then((res) => {
             // console.log(res[1], res[5].answer);
-            app.wrongAnswers(res, 100);
+            app.wrongAnswers(res, 10);
             
     });
 }
@@ -132,7 +144,7 @@ app.events = function(){
 
     $(".value").on("click", function(){
         app.userValueChoice = $(".value:checked").val();
-        console.log(app.userValueChoice);
+        // console.log(app.userValueChoice);
     // USING THE VALUE FROM INPUT TO REPLACE THE VALUES IN AJAX
     // console.log(app.getClues(app.userCategoryChoice());
     
@@ -176,26 +188,41 @@ app.displayQuestion = function (questions) {
     const value = $("<h4>").text(app.userValueChoice);
     const question = $("<h2>").text(questions[randomNum].question);
 
+    console.log("All questions");
+    console.log(questions);
+    console.log("all good questions ")
+    console.log(goodQuestions);
+    
+    
 
     let result=[];
 
     app.wrongAnswers = function (res, neededElements) {
         // let result = [];
+        // console.log(res);
+        let re =/</;
+        re.exec(res.answer.answer);
+        
         const filteredAnswers = res.map((answer)=> {
             return answer.answer;
         })
 
-        
         for (let i = 0; i < neededElements; i++) {
             result.push(filteredAnswers[Math.floor(Math.random() * res.length)]);
         }
         
         
         console.log(result);
-        // console.log(questions);
+
+        let uniqueAnswers = new Set(result);
+        // console.log(uniqueAnswers);
+        uniqueAnswers.add(app.correctAnswer);
+        console.log(uniqueAnswers);
         
+        
+
         result.forEach((answer) => {
-            $(".answerContainer").append(`<input type = "radio" name= "wrongAnswer" value=${answer} id="${answer} class="answers"><label for=${answer}>${answer}</label>`)
+            $(".answerContainer").append(`<input type = "radio" name="answers" value=${answer} id="${answer}" class="answers"><label for=${answer}>${answer}</label>`)
             // console.log(answer.answer);
         })
         // return result;
@@ -210,7 +237,7 @@ app.displayQuestion = function (questions) {
         // const answer = $("<h2>").text(questions[randomNum].answer);    
         // $(".answerContainer").append(`<input type = "radio" name= "correctAnswer" value=${app.correctAnswer} id="${app.correctAnswer} class="answers"><label for=${app.correctAnswer}>${app.correctAnswer}</label>`)
         result.push(app.correctAnswer);
-        console.log(app.correctAnswer);
+        // console.log(app.correctAnswer);
         // GET RANDOM ANSWERS FROM SECOND AJAX CALL 
         app.getAnswers(app.userCategoryChoice);
     }
