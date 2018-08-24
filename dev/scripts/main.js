@@ -31,15 +31,21 @@
 // play again button
 
 // if user chooses the the right answer then add value to score 
-
-
-
+// link the value on click or submit 
+// make a timer 
+// add score 
+// next question empty everything and display everything 
+//timer will run out 
+// display Times Up and final score 
+// play again button 
 
 // stretch goal 
 // remove possible elements that are around answers 
 
 const app = {};
 
+// app.filteredQ = [];
+ 
 
 app.foodFacts = 832;
 app.movies= 309;
@@ -81,11 +87,20 @@ app.getClues = function (categoryID, valueID){
         data: {
             count: 100,
             value: valueID,
-            category: categoryID
+            category: categoryID,
         }
     })
     .then((res) => {
-        app.displayQuestion(res);        
+        //console.log(res);
+        
+        // app.goodQuestions = res.filter((question) => {
+        //     return question.invalid_count !== null;
+        // })
+        
+        // console.log("good questions");
+        // console.log(app.goodQuestions);
+        
+        app.displayQuestion(res);     
     });
 }
 
@@ -105,9 +120,6 @@ app.getAnswers = function (categoryID) {
     });
 }
 
-
-
-
 // ===============
 // USER CHOOSES CATEGORY AND VALUE
 // ===============
@@ -115,7 +127,7 @@ app.events = function(){
 
     $(".category").on("click", function(){
         app.userCategoryChoice = $(".category:checked").val();
-        console.log(app.userCategoryChoice);
+        // console.log(app.userCategoryChoice);
     })    
 
     // When user submits, clear html and display value choices 
@@ -145,22 +157,31 @@ $(".submitDifficulty").on("click", function (e) {
 
 
 app.displayQuestion = function (questions) {
-    const goodQuestions = questions.filter((question)=>{
-        return question.answer==="="
-    });
 
+    // console.log("All filtered questions");
+    // console.log(questions);
+    
+    const goodQuestions = questions.filter((question) => {
+        return question.invalid_count === null;
+    })
+
+    // console.log("good questions");
+    // console.log(goodQuestions);
+
+    
     let randomNum = Math.floor(Math.random() * questions.length);
-
+    // console.log(questions[randomNum]);
+    
     // console.log(questions[randomNum]);
     
     const title = $("<h3>").text(questions[randomNum].category.title);
     const value = $("<h4>").text(app.userValueChoice);
     const question = $("<h2>").text(questions[randomNum].question);
 
-    console.log("All questions");
-    console.log(questions);
-    console.log("all good questions ")
-    console.log(goodQuestions);
+    // console.log("All questions");
+    // console.log(questions);
+    // console.log("all good questions ")
+    // console.log(goodQuestions);
     
     
 
@@ -169,10 +190,14 @@ app.displayQuestion = function (questions) {
     app.wrongAnswers = function (res, neededElements) {
         // let result = [];
         // console.log(res);
-        let re =/</;
-        re.exec(res.answer.answer);
+        
+        
+        
+        
+        // re.exec(res.answer.answer);
         
         const filteredAnswers = res.map((answer)=> {
+       
             return answer.answer;
         })
 
@@ -180,22 +205,49 @@ app.displayQuestion = function (questions) {
             result.push(filteredAnswers[Math.floor(Math.random() * res.length)]);
         }
         
-        console.log(result);
+        
+        // console.log(result);
 
-        let uniqueAnswers = new Set(result);
+        let newAnswersWithoutRandomCharacters;
+        let emptyArray = [];
+        console.log("empty array");
+        console.log(emptyArray);
+        
+        // let re = /<i>/
+        let re = /<\/?[\w\s="/.':;#-\/\?]+>|[\/\\:+="#]+/gi
+        // let re = /<\/?[\w\s="/.':;#-\/\?]+>|[\/\\:+"#]+/gi
+        let answersWithoutRandomCharacters = result.forEach((item) => {
+            newAnswersWithoutRandomCharacters = item.replace(re, '');
+            emptyArray.push(newAnswersWithoutRandomCharacters)
+            // console.log(newAnswersWithoutRandomCharacters);
+        })
+        
+        let uniqueAnswers = new Set(emptyArray);
         // console.log(uniqueAnswers);
         uniqueAnswers.add(app.correctAnswer);
+        console.log("These are unique answers");
         console.log(uniqueAnswers);
         
+        for (let answer of uniqueAnswers.values()) {
+            console.log(answer);
+            $(".answerContainer").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)
+        }
+
+        // get four and correct answer from unique answers array 
+        // randomiz them so corrext answer isn't always in the first spot 
+
+        
         
 
-        result.forEach((answer) => {
-            $(".answerContainer").append(`<input type = "radio" name="answers" value=${answer} id="${answer}" class="answers"><label for=${answer}>${answer}</label>`)
-            // console.log(answer.answer);
-        })
-        return result;;
+        // result.forEach((answer) => {
+        //     $(".answerContainer").append(`<input type = "radio" name="answers" value=${answer} id="${answer}" class="answers"><label for=${answer}>${answer}</label>`)
+        //     // console.log(answer.answer);
+        // })
+        // return result;
     }
 
+
+    
     const displayAnswers = function() {
         // DISPLAY CORRECT ANSWER 
         //create an object with a key of answer and value of key shuold be app.correctanswer. 
