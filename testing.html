@@ -37,6 +37,8 @@
                         //     return question;
                         // }
                     });
+
+                    
                     
                     console.log("good questions")
                     console.log(goodQuestions)
@@ -63,12 +65,18 @@
         //we don't want answers containing
         // <i>
         // // if answer includes <i>, it will return true
-        let re = /<i>/
-        const result = "<i>Hook</i>";
-        re.exec(result);
-        console.log(re.exec(result));
+        // let re = /<i>/
+        // const result = "<i>Hook</i>";
+        // re.exec(result);
+        // console.log(re.exec(result));
         
+        let re = /<\/?[\w\s="/.':;#-\/\?]+>/gi
 
+            var result = '<i>hello</i>';
+
+            var newResult = result.replace(re, '');
+
+            console.log(newResult); 
 
 
     </script>
