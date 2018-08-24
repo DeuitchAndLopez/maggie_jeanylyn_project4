@@ -39,13 +39,8 @@
 // display Times Up and final score 
 // play again button 
 
-
-
-
 // stretch goal 
 // remove possible elements that are around answers 
-
-
 
 const app = {};
 
@@ -132,7 +127,7 @@ app.events = function(){
 
     $(".category").on("click", function(){
         app.userCategoryChoice = $(".category:checked").val();
-        console.log(app.userCategoryChoice);
+        // console.log(app.userCategoryChoice);
     })    
 
     // When user submits, clear html and display value choices 
@@ -163,20 +158,15 @@ $(".submitDifficulty").on("click", function (e) {
 
 app.displayQuestion = function (questions) {
 
-    //  let filteredQ = questions.filter((question) => {
-    //     return question.invalid_count === null
-    //     }
-    // )
-    console.log("All filtered questions");
-    console.log(questions);
+    // console.log("All filtered questions");
+    // console.log(questions);
     
     const goodQuestions = questions.filter((question) => {
         return question.invalid_count === null;
     })
 
-    console.log("good questions");
-    console.log(goodQuestions);
-    
+    // console.log("good questions");
+    // console.log(goodQuestions);
 
     
     let randomNum = Math.floor(Math.random() * questions.length);
@@ -188,10 +178,10 @@ app.displayQuestion = function (questions) {
     const value = $("<h4>").text(app.userValueChoice);
     const question = $("<h2>").text(questions[randomNum].question);
 
-    console.log("All questions");
-    console.log(questions);
-    console.log("all good questions ")
-    console.log(goodQuestions);
+    // console.log("All questions");
+    // console.log(questions);
+    // console.log("all good questions ")
+    // console.log(goodQuestions);
     
     
 
@@ -200,10 +190,14 @@ app.displayQuestion = function (questions) {
     app.wrongAnswers = function (res, neededElements) {
         // let result = [];
         // console.log(res);
-        let re =/</;
-        re.exec(res.answer.answer);
+        
+        
+        
+        
+        // re.exec(res.answer.answer);
         
         const filteredAnswers = res.map((answer)=> {
+       
             return answer.answer;
         })
 
@@ -212,19 +206,43 @@ app.displayQuestion = function (questions) {
         }
         
         
-        console.log(result);
+        // console.log(result);
 
-        let uniqueAnswers = new Set(result);
+        let newAnswersWithoutRandomCharacters;
+        let emptyArray = [];
+        console.log("empty array");
+        console.log(emptyArray);
+        
+        // let re = /<i>/
+        let re = /<\/?[\w\s="/.':;#-\/\?]+>|[\/\\:+="#]+/gi
+        // let re = /<\/?[\w\s="/.':;#-\/\?]+>|[\/\\:+"#]+/gi
+        let answersWithoutRandomCharacters = result.forEach((item) => {
+            newAnswersWithoutRandomCharacters = item.replace(re, '');
+            emptyArray.push(newAnswersWithoutRandomCharacters)
+            // console.log(newAnswersWithoutRandomCharacters);
+        })
+        
+        let uniqueAnswers = new Set(emptyArray);
         // console.log(uniqueAnswers);
         uniqueAnswers.add(app.correctAnswer);
+        console.log("These are unique answers");
         console.log(uniqueAnswers);
+        
+        for (let answer of uniqueAnswers.values()) {
+            console.log(answer);
+            $(".answerContainer").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)
+        }
+
+        // get four and correct answer from unique answers array 
+        // randomiz them so corrext answer isn't always in the first spot 
+
         
         
 
-        result.forEach((answer) => {
-            $(".answerContainer").append(`<input type = "radio" name="answers" value=${answer} id="${answer}" class="answers"><label for=${answer}>${answer}</label>`)
-            // console.log(answer.answer);
-        })
+        // result.forEach((answer) => {
+        //     $(".answerContainer").append(`<input type = "radio" name="answers" value=${answer} id="${answer}" class="answers"><label for=${answer}>${answer}</label>`)
+        //     // console.log(answer.answer);
+        // })
         // return result;
     }
 
