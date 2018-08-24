@@ -57,16 +57,20 @@
                 });
 
         }
-
+             let re = /<\/?[\w\s="/.':;#-\/\?]+>|[\/\\:+"#]+/gi
+                var result = '<i =//>he/#llo\\</i>\ ffe/af"""';
+                var newResult = result.replace(re, '');
+                console.log(newResult); 
         // getClues();
 
         //we don't want answers containing
         // <i>
         // // if answer includes <i>, it will return true
-        let re = /<i>/
-        const result = "<i>Hook</i>";
-        re.exec(result);
-        console.log(re.exec(result));
+        // let re = /<i>/
+        // const result = "<i>Hook</i>";
+        // re.exec(result);
+        // console.log(re.exec(result));
+        //map throough answers. if it contains use trim 
         
 
 
