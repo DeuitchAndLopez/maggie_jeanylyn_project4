@@ -155,6 +155,34 @@ $(".submitDifficulty").on("click", function (e) {
 
 // DISPLAYING A RANDOM QUESTION BASED ON INPUT
 
+    // When user submits value hide the value and show the random question
+    $(".submitDifficulty").on("click", function (e) {
+        e.preventDefault();
+        $(".valueContainer").addClass("hide");
+        $(".questionContainer").removeClass("hide");
+        $(".answerContainer").removeClass("hide");
+        app.getClues(app.userCategoryChoice, app.userValueChoice);
+        })
+    
+    // grab the value of what they chose 
+    // and compare to value of the correct answer 
+    // if it matches score increase 
+    $(".answers").on("click", function(){
+        app.userAnswerChoice = $(".value:checked").val();
+        if (app.userAnswerChoice === app.correctAnswer){
+            console.log("you chose right!");
+            
+        }
+
+    })    
+} // end of event function
+
+// ===============
+// DISPLAY RANDOM QUESTION BASED ON USER INPUT 
+// AND RANDOM ANSWERS BASED ON THE CATRGORY
+// USER PUT IN  
+// ===============
+
 
 app.displayQuestion = function (questions) {
 
@@ -236,18 +264,32 @@ app.displayQuestion = function (questions) {
         // get four and correct answer from unique answers array 
         // randomiz them so corrext answer isn't always in the first spot 
 
+        // looping over regular array 
+        // to make sure we only have 5 answers 
+        for (let i = backToRegArray.length; i > 5; i-- ){
+            backToRegArray.pop();
+        }
         
+        // this randomizes the order of the array. 
+        backToRegArray.sort(function (a, b) { return 0.5 - Math.random() });
+        console.log("Array in random order");
+        console.log(backToRegArray);
         
-
-        // result.forEach((answer) => {
-        //     $(".answerContainer").append(`<input type = "radio" name="answers" value=${answer} id="${answer}" class="answers"><label for=${answer}>${answer}</label>`)
-        //     // console.log(answer.answer);
-        // })
-        // return result;
-    }
-
-
+        // for every answer append it to the page 
+        for (let answer of backToRegArray){
+            $(".answerContainer").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)  
+             
+        }
+        // appending the submit button 
+        $(".answerContainer").append(`<input type="submit" value="Submit Answer" class="submitAnswer">`);
+        
+    } // end of wrong answers function 
     
+    // ===============
+    // DISPLAY CORRECT ANSWERS 
+    // FROM CATEGORY THE USER CHOSE
+    // ===============
+    app.correctAnswer; 
     const displayAnswers = function() {
         // DISPLAY CORRECT ANSWER 
         //create an object with a key of answer and value of key shuold be app.correctanswer. 
@@ -258,6 +300,7 @@ app.displayQuestion = function (questions) {
         // console.log(app.correctAnswer);
         // GET RANDOM ANSWERS FROM SECOND AJAX CALL 
         app.getAnswers(app.userCategoryChoice);
+        
     }
     
 
