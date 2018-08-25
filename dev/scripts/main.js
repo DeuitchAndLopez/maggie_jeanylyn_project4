@@ -175,7 +175,7 @@ $(".submitDifficulty").on("click", function (e) {
         }
 
     })    
-} // end of event function
+// end of event function
 
 // ===============
 // DISPLAY RANDOM QUESTION BASED ON USER INPUT 
@@ -263,7 +263,7 @@ app.displayQuestion = function (questions) {
 
         // get four and correct answer from unique answers array 
         // randomiz them so corrext answer isn't always in the first spot 
-
+        let backToRegArray = Array.from(uniqueAnswers);
         // looping over regular array 
         // to make sure we only have 5 answers 
         for (let i = backToRegArray.length; i > 5; i-- ){
