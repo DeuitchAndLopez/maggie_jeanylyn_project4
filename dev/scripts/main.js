@@ -100,6 +100,15 @@ app.getAnswers = function (categoryID) {
 // ===============
 app.events = function () {
 
+    $(".startButton").on("click", function(e){
+        e.preventDefault();
+        console.log('click');
+        $(".timerScore").removeClass("hide");
+        $(".categoryContainer").removeClass("hide");
+        $(".startGame").addClass("hide");
+        app.timer(120);
+    })
+
     $(".category").on("click", function () {
         app.userCategoryChoice = $(".category:checked").val();
     })
@@ -122,9 +131,7 @@ app.events = function () {
         $(".valueContainer").addClass("hide");
         $(".questionContainer").removeClass("hide");
         $(".answerContainer").removeClass("hide");
-        $(".timerScore").removeClass("hide");
         app.getClues(app.userCategoryChoice, app.userValueChoice);
-        app.timer(120);
     })
 
 
@@ -174,9 +181,7 @@ app.timer = function(seconds) {
         const remainderSeconds = seconds % 60;
         const display = `${minutes}:${remainderSeconds < 10 ? "0" : ""}${remainderSeconds}`;
         $(".timer").text(display);
-        console.log({minutes, remainderSeconds});
-        
-
+        // console.log({minutes, remainderSeconds});
     }
 
     
@@ -292,7 +297,7 @@ app.displayQuestion = function (questions) {
         $(".nextQuestion").on("click", function(e){
             e.preventDefault();
             $(".categoryContainer").removeClass("hide");
-            $(".nextQuestion").addClass("hide");
+            // $(".nextQuestion").addClass("hide");
             $(".wrong").addClass("hide");
             $(".right").addClass("hide");
         })
@@ -331,7 +336,7 @@ app.displayQuestion = function (questions) {
 // ===============
 app.init = function () {
     app.events();
-    $(".categoryContainer").removeClass("hide");
+    $(".startGame").removeClass("hide");
 }
 
 // ===============
