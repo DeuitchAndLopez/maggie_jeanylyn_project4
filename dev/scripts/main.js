@@ -119,8 +119,21 @@ app.events = function(){
         e.preventDefault();
         $(".valueContainer").addClass("hide");
         $(".questionContainer").removeClass("hide");
+        $(".answerContainer").removeClass("hide");
         app.getClues(app.userCategoryChoice, app.userValueChoice);
         })
+    
+    // grab the value of what they chose 
+    // and compare to value of the correct answer 
+    // if it matches score increase 
+    $(".answers").on("click", function(){
+        app.userAnswerChoice = $(".value:checked").val();
+        if (app.userAnswerChoice === app.correctAnswer){
+            console.log("you chose right!");
+            
+        }
+
+    })    
 } // end of event function
 
 // ===============
@@ -128,6 +141,8 @@ app.events = function(){
 // AND RANDOM ANSWERS BASED ON THE CATRGORY
 // USER PUT IN  
 // ===============
+
+
 app.displayQuestion = function (questions) {
     
     // ARE WE EVEN USING THIS ANYMORE?? DOESN'T LOOK LIKE IT
@@ -204,18 +219,19 @@ app.displayQuestion = function (questions) {
         
         // for every answer append it to the page 
         for (let answer of backToRegArray){
-            $(".answerContainer").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)   
+            $(".answerContainer").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)  
+             
         }
+        // appending the submit button 
+        $(".answerContainer").append(`<input type="submit" value="Submit Answer" class="submitAnswer">`);
         
-        
-
-
     } // end of wrong answers function 
     
     // ===============
     // DISPLAY CORRECT ANSWERS 
     // FROM CATEGORY THE USER CHOSE
     // ===============
+    app.correctAnswer; 
     const displayAnswers = function() {
         // this is the correct answer 
         app.correctAnswer = questions[randomNum].answer;
@@ -227,6 +243,7 @@ app.displayQuestion = function (questions) {
         // calling app.getAnswers 
         // so we have the info from the API 
         app.getAnswers(app.userCategoryChoice);
+        
     }
     
 
