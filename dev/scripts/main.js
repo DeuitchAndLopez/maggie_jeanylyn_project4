@@ -3,28 +3,28 @@
 // ==============
 // CATGEORY IDS
 // ==============
-    // foodFacts = 832;
-    // movies= 309;
-    // popMusic = 770;
-    // stupidAnswers = 136;
-    // animals = 21;
-    // countriesOfTheWorld = 1361;
-    // musicalInstruments = 184;
-    // fruitsAndVegetables = 777;
-    // actresses = 612;
-    // threeLetterWords = 105;
-    // worldCapitals = 78;
-    // mythology = 680;
-    // doubleTalk = 89;
-    // rhymeTime = 215;
-    // nurseryRhymes = 37; 
-    // music = 70;
+// foodFacts = 832;
+// movies= 309;
+// popMusic = 770;
+// stupidAnswers = 136;
+// animals = 21;
+// countriesOfTheWorld = 1361;
+// musicalInstruments = 184;
+// fruitsAndVegetables = 777;
+// actresses = 612;
+// threeLetterWords = 105;
+// worldCapitals = 78;
+// mythology = 680;
+// doubleTalk = 89;
+// rhymeTime = 215;
+// nurseryRhymes = 37; 
+// music = 70;
 
 // filter the values of them so the user can choose value 
 // make sure the value we want is there so the user has choices 
-    // 100, 200, 300 = easy 
-    // 400, 500, 600 = medium 
-    // 800, 1000 = hard 
+// 100, 200, 300 = easy 
+// 400, 500, 600 = medium 
+// 800, 1000 = hard 
 
 // display all categories 
 // update the radio buttons
@@ -32,10 +32,10 @@
 // remove buttons when submit is pressed 
 // display question 
 // can we filter through the inputs so we only get valid questions?
-    // can do this in the array we're given back 
-    // filter through the array? 
+// can do this in the array we're given back 
+// filter through the array? 
 // display answer and the choices users can pick from for multiple choice 
-    // maybe choose the answers from multiple choice with Math.random just get 5 randome answers in the category doesnt have to be specific to value but could be from the larger array of 100 objects 
+// maybe choose the answers from multiple choice with Math.random just get 5 randome answers in the category doesnt have to be specific to value but could be from the larger array of 100 objects 
 // make the random multiple choice choises and the correct answer into a button on the page 
 
 // maybe choose the answers from multiple choice with Math.random just get 5 randome answers in the category doesnt have to be specific to value but could be from the larger array of 100 objects
@@ -58,7 +58,9 @@ const app = {};
 // BASED ON CATEGORY AND VALUE
 // ==============
 
-app.getClues = function (categoryID, valueID){
+app.score = 0;
+
+app.getClues = function (categoryID, valueID) {
     $.ajax({
         url: "http://jservice.io/api/clues",
         method: "GET",
@@ -68,9 +70,9 @@ app.getClues = function (categoryID, valueID){
             category: categoryID,
         }
     })
-    .then((res) => {        
-        app.displayQuestion(res);     
-    });
+        .then((res) => {
+            app.displayQuestion(res);
+        });
 }
 
 // ==============
@@ -90,27 +92,27 @@ app.getAnswers = function (categoryID) {
     })
         .then((res) => {
             app.wrongAnswers(res, 6);
-    });
+        });
 }
 
 // ===============
 // USER CHOOSES CATEGORY AND VALUE
 // ===============
-app.events = function(){
+app.events = function () {
 
-    $(".category").on("click", function(){
+    $(".category").on("click", function () {
         app.userCategoryChoice = $(".category:checked").val();
-    })    
+    })
 
     // When user submits, hide Categories and show value choices 
-    $(".submitCategory").on("click", function(e){
+    $(".submitCategory").on("click", function (e) {
         e.preventDefault();
         $(".categoryContainer").addClass("hide");
         $(".valueContainer").removeClass("hide");
     })
 
     // When user submits, store value 
-    $(".value").on("click", function(){
+    $(".value").on("click", function () {
         app.userValueChoice = $(".value:checked").val();
     })
 
@@ -121,19 +123,9 @@ app.events = function(){
         $(".questionContainer").removeClass("hide");
         $(".answerContainer").removeClass("hide");
         app.getClues(app.userCategoryChoice, app.userValueChoice);
-        })
-    
-    // grab the value of what they chose 
-    // and compare to value of the correct answer 
-    // if it matches score increase 
-    $(".answers").on("click", function(){
-        app.userAnswerChoice = $(".value:checked").val();
-        // if (app.userAnswerChoice === app.correctAnswer){
-        //     console.log("you chose right!");
-            
-        // }
+    })
 
-    })    
+
 } // end of event function
 
 // ===============
@@ -144,7 +136,7 @@ app.events = function(){
 
 
 app.displayQuestion = function (questions) {
-    
+
     // ARE WE EVEN USING THIS ANYMORE?? DOESN'T LOOK LIKE IT
     // SHOULD WE BE USING GOODQUESTIONS TO APPEND INSTEAD OF QUESTIONS
     const goodQuestions = questions.filter((question) => {
@@ -160,7 +152,7 @@ app.displayQuestion = function (questions) {
     const question = $("<h2>").text(questions[randomNum].question);
 
     // an array with the results from .....??????
-    let result=[];
+    let result = [];
 
     // ===============
     // GETTING RANDOM ANSWERS 
@@ -169,7 +161,7 @@ app.displayQuestion = function (questions) {
     app.wrongAnswers = function (res, neededElements) {
         // filtering through the results of 
         //the second ajax call for answers
-        const filteredAnswers = res.map((answer)=> {
+        const filteredAnswers = res.map((answer) => {
             return answer.answer;
         })
 
@@ -177,7 +169,7 @@ app.displayQuestion = function (questions) {
         for (let i = 0; i < neededElements; i++) {
             result.push(filteredAnswers[Math.floor(Math.random() * res.length)]);
         }
-        
+
         // using regex here
         let newAnswersWithoutRandomCharacters;
         let emptyArray = [];
@@ -187,14 +179,14 @@ app.displayQuestion = function (questions) {
             emptyArray.push(newAnswersWithoutRandomCharacters)
             // console.log(newAnswersWithoutRandomCharacters);
         })
-        
+
         // filter through answers to make sure they're unique 
         // and duplicates don't show up 
         let uniqueAnswers = new Set(emptyArray);
         uniqueAnswers.add(app.correctAnswer);
         console.log("These are unique answers in a Set");
         console.log(uniqueAnswers);
-        
+
         // loop through new array of unique answers 
         // and append the answers in the array
         for (let answer of uniqueAnswers.values()) {
@@ -208,44 +200,65 @@ app.displayQuestion = function (questions) {
 
         // looping over regular array 
         // to make sure we only have 5 answers 
-        for (let i = backToRegArray.length; i > 5; i-- ){
+        for (let i = backToRegArray.length; i > 5; i--) {
             backToRegArray.pop();
         }
-        
+
         // this randomizes the order of the array. 
         backToRegArray.sort(function (a, b) { return 0.5 - Math.random() });
         console.log("Array in random order");
         console.log(backToRegArray);
-        
+
         // for every answer append it to the page 
-        for (let answer of backToRegArray){
-            $(".answerContainer").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)  
-             
+        for (let answer of backToRegArray) {
+            $(".answerContainer").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)
+
         }
         // appending the submit button 
         $(".answerContainer").append(`<input type="submit" value="Submit Answer" class="submitAnswer">`);
-        
+        // grab the value of what they chose 
+        // and compare to value of the correct answer 
+        // if it matches score increase 
+
+        $(".answers").on("click", function () {
+            console.log("clicked on an answer")
+            app.userValueChoice = $(".answers:checked").val();
+            if (app.userValueChoice === app.correctAnswer){
+                app.score = app.score + questions[randomNum].value;
+                $(".score").append(`<p>${app.score}</p>`);
+                console.log("right");
+            } else {
+                console.log("wrong");
+                
+            }
+        })
+
+        $(".submitAnswer").on("click", function (e) {
+            e.preventDefault();
+            console.log("clicked submit button");
+        })
+
     } // end of wrong answers function 
-    
+
     // ===============
     // DISPLAY CORRECT ANSWERS 
     // FROM CATEGORY THE USER CHOSE
     // ===============
-    app.correctAnswer; 
-    const displayAnswers = function() {
+    app.correctAnswer;
+    const displayAnswers = function () {
         // this is the correct answer 
         app.correctAnswer = questions[randomNum].answer;
         console.log("This is the right answer");
         console.log(app.correctAnswer);
-        
+
         // pushing the correct answer into result 
         result.push(app.correctAnswer);
         // calling app.getAnswers 
         // so we have the info from the API 
         app.getAnswers(app.userCategoryChoice);
-        
+
     }
-    
+
 
     $(".questionContainer").append(title, value, question);
     displayAnswers();
@@ -255,7 +268,7 @@ app.displayQuestion = function (questions) {
 // ===============
 // INITIALIZE THE APP
 // ===============
-app.init = function(){
+app.init = function () {
     app.events();
     $(".categoryContainer").removeClass("hide");
 }
@@ -263,6 +276,6 @@ app.init = function(){
 // ===============
 // DOC READY
 // ===============
-$(function(){
+$(function () {
     app.init();
 });
