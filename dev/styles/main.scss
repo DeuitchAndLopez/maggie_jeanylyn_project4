@@ -1,4 +1,15 @@
-@import
+@import "partials/_setup.scss";
+@import "partials/_utils.scss";
+@import "partials/_typography.scss";
+@import "partials/_start.scss";
+@import "partials/_categories.scss";
+@import "partials/_values.scss";
+@import "partials/_questions.scss";
+@import "partials/_rightOrWrong.scss";
+@import "partials/_gameOver.scss";
+
+
+
 html {
     font-size: 62.5%;
     color: green;
