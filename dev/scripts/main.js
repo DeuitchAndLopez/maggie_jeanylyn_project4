@@ -169,10 +169,10 @@ $(".submitDifficulty").on("click", function (e) {
     // if it matches score increase 
     $(".answers").on("click", function(){
         app.userAnswerChoice = $(".value:checked").val();
-        if (app.userAnswerChoice === app.correctAnswer){
-            console.log("you chose right!");
+        // if (app.userAnswerChoice === app.correctAnswer){
+        //     console.log("you chose right!");
             
-        }
+        // }
 
     })    
 // end of event function
