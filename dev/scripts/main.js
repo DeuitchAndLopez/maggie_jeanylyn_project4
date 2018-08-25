@@ -124,7 +124,7 @@ app.events = function () {
         $(".answerContainer").removeClass("hide");
         $(".timerScore").removeClass("hide");
         app.getClues(app.userCategoryChoice, app.userValueChoice);
-        app.timer(5);
+        app.timer(120);
     })
 
 
@@ -140,29 +140,43 @@ app.timer = function(seconds) {
     const now = Date.now();
     const then = now + seconds * 1000;
     displayTimeLeft(seconds);
-    $(".timer").text(`0:${seconds}`);
+    // $(".timer").text(display);
 
     let countdown = setInterval(function () {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
-        displayTimeLeft(secondsLeft);
-        $(".timer").text(`0:${secondsLeft}`);
-        if (secondsLeft < 10) {
-            $(".timer").empty();
-            $(".timer").text(`0:0${secondsLeft}`);
+        if (secondsLeft < 0) {
+            clearInterval(countdown);
+            return;
+            // $(".timer").empty();
+            // $(".timer").text(`0:0${secondsLeft}`);
         }
+        displayTimeLeft(secondsLeft);
+        // $(".timer").text(`0:${secondsLeft}`);
 
         if (secondsLeft === 0){
             clearInterval(countdown);
             $(".timerScore").addClass("hide");
+            $(".categoryContainer").addClass("hide");
             $(".questionContainer").addClass("hide");
+            $(".valueContainer").addClass("hide");
             $(".answerContainer").addClass("hide");
+            $(".right").addClass("hide");
+            $(".wrong").addClass("hide");
             $(".gameOver").removeClass("hide");
+        
         }
 
     }, 1000);
 }
 
     function displayTimeLeft(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainderSeconds = seconds % 60;
+        const display = `${minutes}:${remainderSeconds < 10 ? "0" : ""}${remainderSeconds}`;
+        $(".timer").text(display);
+        console.log({minutes, remainderSeconds});
+        
+
     }
 
     
@@ -256,16 +270,6 @@ app.displayQuestion = function (questions) {
         $(".answers").on("click", function () {
             console.log("clicked on an answer")
             app.userValueChoice = $(".answers:checked").val();
-            if (app.userValueChoice === app.correctAnswer){
-                app.score = app.score + goodQuestions[randomNum].value;
-                $(".score").text(`${app.score}`);
-                console.log("right");
-                $(".answerForm").append("<p>Right!</p>")
-            } else {
-                console.log("wrong");
-                $(".answerForm").append("<p>WRONG!!!!!</p>")
-                
-            }
         })
 
         $(".submitAnswer").on("click", function (e) {
@@ -274,8 +278,26 @@ app.displayQuestion = function (questions) {
             $(".questionContainer").addClass("hide").empty();
             $(".answerForm").empty();
             $(".answerContainer").addClass("hide")
-            $(".categoryContainer").removeClass("hide");
+            if (app.userValueChoice === app.correctAnswer) {
+                app.score = app.score + goodQuestions[randomNum].value;
+                $(".score").text(`${app.score}`)
+                $(".right").removeClass("hide")
+            } else {
+                app.score =app.score - goodQuestions[randomNum].value;
+                $(".score").text(`${app.score}`)
+                $(".wrong").removeClass("hide")
+            }
         })
+
+        $(".nextQuestion").on("click", function(e){
+            e.preventDefault();
+            $(".categoryContainer").removeClass("hide");
+            $(".nextQuestion").addClass("hide");
+            $(".wrong").addClass("hide");
+            $(".right").addClass("hide");
+        })
+
+
 
     } // end of wrong answers function 
 
