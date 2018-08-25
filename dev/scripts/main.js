@@ -126,11 +126,26 @@ app.events = function(){
     // grab the value of what they chose 
     // and compare to value of the correct answer 
     // if it matches score increase 
+
+    // $("button").click(function () {
+    //     $("h2").append("<p class='test'>click me " + (++counter) + "</p>")
+    // });
+
+    // // With on():
+
+    // $("h2").on("click", "p.test", function () {
+    //     alert($(this).text());
+    // });
+
     $(".answers").on("click", function(){
-        app.userAnswerChoice = $(".value:checked").val();
+        app.userAnswerChoice = $(".answers:checked").val();
+        // app.userAnswerChoice = $("input[type=radio]:checked").val()
+        console.log("This is what the user's answer choice is")
+        console.log(app.userAnswerChoice);
+        // $(".answerContainer").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)  
+        
         // if (app.userAnswerChoice === app.correctAnswer){
         //     console.log("you chose right!");
-            
         // }
 
     })    
