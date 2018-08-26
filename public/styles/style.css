@@ -154,12 +154,6 @@ h1 {
   padding-left: 0.9rem;
   line-height: 4rem; }
 
-<<<<<<< HEAD
-.h1Small {
-  font-size: 1.5rem;
-  letter-spacing: 2.2rem;
-  padding-left: 2.2rem; }
-=======
 h2 {
   font-size: 3rem; }
 
@@ -167,11 +161,11 @@ p {
   font-size: 1.8rem; }
 
 input {
-  font-size: 1.5rem; }
+  font-size: 1.4rem; }
 
-body {
-  background-color: #060ce9; }
->>>>>>> 89046d2df4cc4fcf27928b1cd130d7e8d354af8c
+.startGame img {
+  width: 100%;
+  margin-top: -25px; }
 
 .button {
   display: block;
@@ -209,6 +203,41 @@ body {
 .submitCategory {
   margin: 20px; }
 
+.answerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center; }
+  .answerForm h3 {
+    font: size; }
+
+label {
+  display: block;
+  padding: 2%;
+  width: 100%; }
+  label:hover {
+    border: 1px solid #ffcc00; }
+
+label:focus-within {
+  border: 1px solid #ffcc00; }
+
+input:focus + label {
+  border: 1px solid #ffcc00; }
+
+.answerForm input[type="radio"] {
+  position: fixed;
+  opacity: 0; }
+
+.submitAnswer {
+  margin-top: 20px; }
+
+.right, .wrong {
+  text-align: center; }
+  .right h1, .wrong h1 {
+    color: white; }
+  .right img, .wrong img {
+    width: 100%; }
+
 .gameOver {
   text-align: center; }
   .gameOver p {
@@ -216,6 +245,8 @@ body {
     line-height: 30px;
     margin: 0 auto; }
   .gameOver h1 {
+    margin-top: 40px;
+    font-size: 4rem;
     color: white; }
   .gameOver input {
     margin-top: 20px; }
@@ -230,29 +261,19 @@ body {
   font-weight: bold; }
 
 body {
-<<<<<<< HEAD
-  background: #060ce9;
-  font-size: 2rem; }
-=======
   background-color: #060ce9; }
->>>>>>> 89046d2df4cc4fcf27928b1cd130d7e8d354af8c
 
 .hide {
   display: none; }
 
 .wrapper {
-<<<<<<< HEAD
-  width: 300px;
-  padding: 2%;
-=======
   max-width: 320px;
->>>>>>> 89046d2df4cc4fcf27928b1cd130d7e8d354af8c
   margin: 0 auto; }
 
 .mainHeading {
   padding-top: 50px; }
 
-.timerScore {
+.flex {
   display: flex;
   justify-content: flex-end; }
 
