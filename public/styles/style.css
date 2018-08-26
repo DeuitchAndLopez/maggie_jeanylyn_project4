@@ -306,7 +306,8 @@ body {
 
 .flex {
   display: flex;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  align-items: center; }
 
 .timer, .score {
   margin: 5px 10px; }
