@@ -135,7 +135,7 @@ app.events = function () {
         $(app.timerScore).removeClass("hide");
         $(app.categoryContainer).removeClass("hide");
         $(app.startGame).addClass("hide");
-        app.timer(10);
+        app.timer(60);
     })
 
     $(app.category).on("click", function () {

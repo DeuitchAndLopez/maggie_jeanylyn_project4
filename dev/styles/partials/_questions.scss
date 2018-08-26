@@ -1,7 +1,16 @@
-// .answers {
-//     input[type="radio"]{
-//     // visibility: hidden;
-//     // position: fixed;
-//     // opacity: 0;
-//     display: none;
-// }
+input.checked[type="radio"]{
+    visibility:hidden;
+}
+
+
+
+.answerForm {
+    display: flex;
+    // display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    h3 {
+        font: size
+    }
+}

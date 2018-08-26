@@ -206,6 +206,17 @@ body {
 .submitCategory {
   margin: 20px; }
 
+input.checked[type="radio"] {
+  visibility: hidden; }
+
+.answerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center; }
+  .answerForm h3 {
+    font: size; }
+
 .gameOver {
   text-align: center; }
   .gameOver p {
