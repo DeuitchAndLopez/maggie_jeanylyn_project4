@@ -22,7 +22,7 @@ body {
 .wrapper {
     max-width: 320px;
     margin: 0 auto;
-    padding: 0 2%;
+    padding: 0 5%;
 }
 
 .mainHeading {
@@ -31,16 +31,23 @@ body {
 
 .flex {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     
 }
-
-.timerScore {
-    margin-top: 10px;
+.timerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fa-clock {
+    margin-right: 5px;
 }
 
+
 .timer, .score {
-    margin: 5px 10px;
     color: hotpink;
+}
+.score {
+    margin: 5px 0;
 }

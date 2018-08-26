@@ -295,7 +295,7 @@ app.displayQuestion = function (questions) {
 
         // for every answer append it to the page 
         for (let answer of backToRegArray) {
-            $(app.answerForm).append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`);
+            $(app.answerForm).append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}" class="capitalize">${answer}</label>`);
 
         }
         // appending the submit button 

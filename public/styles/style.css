@@ -282,7 +282,8 @@ input:focus + label {
   text-align: center; }
   .right h1, .wrong h1 {
     color: white;
-    letter-spacing: 2px; }
+    letter-spacing: 2px;
+    margin: 20px 0; }
   .right img, .wrong img {
     width: 100%; }
 
@@ -317,19 +318,26 @@ body {
 .wrapper {
   max-width: 320px;
   margin: 0 auto;
-  padding: 0 2%; }
+  padding: 0 5%; }
 
 .mainHeading {
   padding-top: 50px; }
 
 .flex {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center; }
 
-.timerScore {
-  margin-top: 10px; }
+.timerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.fa-clock {
+  margin-right: 5px; }
 
 .timer, .score {
-  margin: 5px 10px;
   color: hotpink; }
+
+.score {
+  margin: 5px 0; }
