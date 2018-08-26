@@ -163,14 +163,9 @@ p {
 input {
   font-size: 1.4rem; }
 
-<<<<<<< HEAD
-body {
-  background-color: #060ce9; }
-=======
 .startGame img {
   width: 100%;
   margin-top: -25px; }
->>>>>>> 5de66cf92109a68638adc61e8340be62f86d6b13
 
 .button {
   display: block;
@@ -215,7 +210,6 @@ body {
 .submitCategory {
   margin: 20px; }
 
-<<<<<<< HEAD
 .valueTitle {
   margin: 20px 0; }
 
@@ -239,7 +233,7 @@ body {
 
 .submitDifficulty {
   margin: 20px; }
-=======
+
 .answerForm {
   display: flex;
   flex-direction: column;
@@ -267,7 +261,6 @@ input:focus + label {
 
 .submitAnswer {
   margin-top: 20px; }
->>>>>>> 5de66cf92109a68638adc61e8340be62f86d6b13
 
 .right, .wrong {
   text-align: center; }
