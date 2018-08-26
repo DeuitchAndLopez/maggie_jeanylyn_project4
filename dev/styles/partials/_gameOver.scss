@@ -1,10 +1,21 @@
-.gameOver p {
-    width: 70%;
-    line-height: 35px;
-    margin: 0 auto;
+.gameOver {
+    p {
+        width: 70%;
+        line-height: 30px;
+        margin: 0 auto;
+    }
+    h1{
+        // font-size: 4rem;
+    }
+    input {
+        margin-top: 20px;
+    }
 }
 
-.gameOver input {
-    margin-top: 20px;
+.finalScore {
+    span {
+        color: rgb(255, 204, 0);
+        font-weight: bold;   
+    }
 }
 

@@ -136,9 +136,12 @@ html {
   color: white;
   font-family: verdana, arial, helvetica, sans-serif; }
 
+h1 {
+  font-size: 4rem; }
+
 h2 {
   color: white;
-  font-size: 2.5rem; }
+  font-size: 2rem; }
 
 p {
   font-size: 1.8rem;
@@ -176,11 +179,15 @@ img {
 
 .gameOver p {
   width: 70%;
-  line-height: 35px;
+  line-height: 30px;
   margin: 0 auto; }
 
 .gameOver input {
   margin-top: 20px; }
+
+.finalScore span {
+  color: #ffcc00;
+  font-weight: bold; }
 
 .hide {
   display: none; }
