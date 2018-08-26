@@ -4,9 +4,28 @@
 
 body {
     // background-color: rgb(6,12,233);
-    background-color: #2a3698;
-
+    background-color: $jeopardyBlue;
 }
+
+.button {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: $jeopardyYellow;
+}
+
+.startInstructions {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+
 
 // .wrapper {
 //     margin: 0 auto;

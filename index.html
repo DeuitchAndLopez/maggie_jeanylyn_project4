@@ -21,15 +21,15 @@
             <p>All questions are multiple choice and you'll be able to choose your category and wager.</p>
             <p>The three minute timer starts as soon as you press the button.</p>
         </div>
-        <input type="submit" value="Let's play Jeopardy" class="startButton">
+        <input type="submit" value="Let's play Jeopardy" class="startButton wrapper button">
     </section>
 <!-- ===============
 CHOOSE CATEGORY AND VALUE 
 =============== -->
 
     <section class="timerScore hide">
-        <h3 class="timer"></h3>
-        <h3 class="score">0</h3>
+        <h3 class="timer wrapper"></h3>
+        <h3 class="score wrapper">0</h3>
     </section>
 
 <!-- ===============
@@ -48,13 +48,13 @@ CATEGORY CHOICE
             
             <label for="musicalInstruments">Musical Instruments</label>
             <input type="radio" name="category" value="184" id="musicalInstruments" class="category">
-            
+    
             <label for="mythology">Mythology</label>
             <input type="radio" name="category" value="680" id="mythology" class="category">
             
             <label for="threeLetterWords">3-Letter Words</label>
             <input type="radio" name="category" value="105" id="threeLetterWords" class="category">
-            <!-- ======= -->
+
             <label for="doubleTalk">Double Talk</label>
             <input type="radio" name="category" value="89" id="doubleTalk" class="category">
 
@@ -70,7 +70,7 @@ CATEGORY CHOICE
             <label for="music">Pop Music</label>
             <input type="radio" name="category" value="770" id="music" class="category">
 
-            <input type="submit" value="Choose Category" class="submitCategory">
+            <input type="submit" value="Choose Category" class="submitCategory button">
         </form>
     </section>
 
@@ -96,7 +96,7 @@ VALUE CHOICE
             <label for="ten">$1000</label>
             <input type="radio" name="value" value="1000" id="ten" class="value">
 
-            <input type="submit" value="Choose Wager" class="submitDifficulty">
+            <input type="submit" value="Choose Wager" class="submitDifficulty button">
         </form>
     </section>
 
@@ -105,10 +105,21 @@ DISPLAY TITLE, VALUE AND QUESTION
 =============== -->
 
     <section class="questionContainer hide">
+            <!-- <h2 class="questionTitle"></h2>
+            <h2 class="questionValue"></h3>
+            <h2 class="questionQuestion"></h2> -->
+            <!-- <h2 class="questionAnswers"></h2> -->
+        <!-- <h2 class="questionTitle"></h2>
+        <h2 class="questionValue"></h2>
+        <h2 class="questionQuestion"></h2>
+        <h2 class="answer"></h2> -->
+
+        <!-- <h2 class="questionAnswers"></h2> -->
+        
         <h3 class="title"></h3>
-        <h4 class="value"></h4>
+        <h3 class="value"></h3>
         <h2 class="question"></h2>
-        <h2 class="answer"></h2>
+        <!-- <h2 class="answer"></h2> -->
     </section>
     <!--remember to add hide class to answer container-->
     <section class="answerContainer hide">
@@ -118,12 +129,11 @@ DISPLAY TITLE, VALUE AND QUESTION
     </section>
 
     <section class="gameOver hide wrapper">
-        <img src="assets/jeopardy-logo.png" alt="Jeopardy logo">
         <h1>GAME OVER</h1>
         <h2 class="finalScore"></h2> 
         <p>Thanks for playing.<br>Hit the button to play again!</p>
         <form action="">
-            <input type="submit" value="Play again" class="testing">
+            <input type="submit" value="Play again" class="testing button">
         </form>
     </section>
 

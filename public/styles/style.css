@@ -147,37 +147,93 @@ h1 {
   color: #ffcc00;
   text-transform: uppercase; }
 
+.h1Small {
+  font-size: 1.5rem;
+  letter-spacing: 2.2rem;
+  padding-left: 2.2rem; }
+
 .h1Big {
-  font-size: 5rem;
-  letter-spacing: .7rem;
-  padding-left: .7rem;
+  font-size: 4rem;
+  letter-spacing: 0.9rem;
+  padding-left: 0.9rem;
   line-height: 4rem; }
 
-.h1Small {
-  font-size: 2rem;
-  letter-spacing: 2.5rem;
-  padding-left: 2.5rem; }
+h2 {
+  font-size: 3rem; }
+
+p {
+  font-size: 1.8rem; }
+
+input {
+  font-size: 1.5rem; }
 
 body {
-  background-color: #2a3698; }
+  background-color: #060ce9; }
 
-.gameOver p {
+.button {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #ffcc00; }
+
+.startInstructions {
   width: 70%;
-  line-height: 30px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center; }
 
-.gameOver input {
-  margin-top: 20px; }
+.categoryTitle {
+  margin: 20px 0; }
+
+.categoryChoice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .categoryChoice label {
+    display: block;
+    padding: 2%;
+    width: 100%; }
+    .categoryChoice label:hover {
+      border: 1px solid #ffcc00; }
+
+.category {
+  display: none; }
+
+.submitCategory {
+  margin: 20px; }
+
+.gameOver {
+  text-align: center; }
+  .gameOver p {
+    width: 70%;
+    line-height: 30px;
+    margin: 0 auto; }
+  .gameOver h1 {
+    color: white; }
+  .gameOver input {
+    margin-top: 20px; }
+
+.answers input {
+  display: block;
+  display: flex;
+  align-content: column; }
 
 .finalScore span {
   color: #ffcc00;
   font-weight: bold; }
 
+body {
+  background-color: #060ce9; }
+
 .hide {
   display: none; }
 
 .wrapper {
-  width: 800px;
+  max-width: 320px;
   margin: 0 auto; }
 
 .mainHeading {

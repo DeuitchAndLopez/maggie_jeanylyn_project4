@@ -1,5 +1,9 @@
 
-$highlight-color: rgb(189, 36, 36); 
+// $highlight-color: rgb(189, 36, 36); 
+$mainTitle: 'Titillium Web', sans-serif;
+$jeopardyBlue: rgb(6, 12, 233);
+$jeopardyYellow: rgb(255, 204, 0);
+
 
 @mixin breakPoint($point) {
   @if $point == large {
@@ -19,7 +23,7 @@ $highlight-color: rgb(189, 36, 36);
   }  
 
   @else if $point == smallest {
-    @media (max-width: 350px) { @content; }
+    @media (max-width: 333px) { @content; }
   }  
 
 }
