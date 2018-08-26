@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Basically Jeopardy!</title>
     <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Titillium+Web:900" rel="stylesheet">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ'
+        crossorigin='anonymous'>
     <link rel="stylesheet" href="public/styles/style.css">
     </head>
     
@@ -18,7 +20,6 @@
     
     <section class="startGame hide wrapper">
         <div class="startInstructions">
-            <img src="assets/alex-trebek.jpg" alt="">
             <p>All questions are multiple choice and you'll be able to choose your category and wager.</p>
             <p>The three minute timer starts as soon as you press the button.</p>
         </div>
@@ -72,22 +73,22 @@ CATEGORY CHOICE
             <label for="mythology">Mythology</label>
             
             <input type="radio" name="category" value="105" id="threeLetterWords" class="category">
-            <label for="threeLetterWords">3-Letter Words</label>
+            <label for="threeLetterWords"><i class="fas fa-dice-three"></i> 3-Letter Words</label>
 
             <input type="radio" name="category" value="89" id="doubleTalk" class="category">
-            <label for="doubleTalk">Double Talk</label>
+            <label for="doubleTalk"><i class="fas fa-hand-peace"></i> Double Talk</label>
 
             <input type="radio" name="category" value="37" id="nurseryRhymes" class="category">
-            <label for="nurseryRhymes">Nursery Rhymes</label>
+            <label for="nurseryRhymes"><i class="fas fa-book-open"></i> Nursery Rhymes</label>
 
             <input type="radio" name="category" value="777" id="fruitsAndVegetables" class="category">
-            <label for="fruitsAndVegetables">Fruits and Vegetables</label>
+            <label for="fruitsAndVegetables"><i class="fas fa-apple-alt"></i> Fruits and Vegetables</label>
 
             <input type="radio" name="category" value="309" id="movies" class="category">
-            <label for="movies">Movies</label>
+            <label for="movies"><i class="fas fa-film"></i> Movies</label>
 
             <input type="radio" name="category" value="770" id="music" class="category">
-            <label for="music">Pop Music</label>
+            <label for="music"><i class="fas fa-music"></i> Pop Music</label>
 
             <input type="submit" value="Choose Category" class="submitCategory button">
         </form>
