@@ -1,0 +1,36 @@
+// ===============
+// THIS IS THE BEGINNING OF THE GAME
+// ===============
+
+body {
+    // background-color: rgb(6,12,233);
+    background-color: #2a3698;
+
+}
+
+.wrapper {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 800px;
+}
+
+
+img {
+    width: 100%;
+    padding: 20px;
+}
+
+.startInstructions {
+    width: 70%;
+}
+
+.startGame input, .gameOver input {
+    height: 40px;
+    width: 50%;
+    background-color: white;
+    border: 3px solid black;
+}
+
+.startGame input:hover, .gameOver input:hover {
+    border: 5px solid rgb(255, 204, 0);
+}

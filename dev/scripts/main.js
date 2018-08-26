@@ -106,7 +106,7 @@ app.events = function () {
         $(".timerScore").removeClass("hide");
         $(".categoryContainer").removeClass("hide");
         $(".startGame").addClass("hide");
-        app.timer(120);
+        app.timer(2);
     })
 
     $(".category").on("click", function () {
@@ -170,6 +170,7 @@ app.timer = function(seconds) {
             $(".right").addClass("hide");
             $(".wrong").addClass("hide");
             $(".gameOver").removeClass("hide");
+            $(".finalScore").append(`Thanks for playing! <br> Your score was ${app.score}.`)
         
         }
 

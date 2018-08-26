@@ -1,0 +1,25 @@
+
+$highlight-color: rgb(189, 36, 36); 
+
+@mixin breakPoint($point) {
+  @if $point == large {
+      @media (max-width: 925px) { @content; }
+  } 
+  
+  @else if $point == medium {
+      @media (max-width: 775px) { @content; }
+  } 
+
+  @else if $point == mediumish {
+    @media (max-width: 670px) { @content; }
+  }
+  
+  @else if $point == small {
+    @media (max-width: 500px) { @content; }
+  }  
+
+  @else if $point == smallest {
+    @media (max-width: 350px) { @content; }
+  }  
+
+}

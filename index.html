@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Jeopardy</title>
     <link rel="stylesheet" href="public/styles/style.css">
 </head>
 <body> 
-    <h1>jeopardy</h1>
+<!-- ===============
+START OF THE GAME
+=============== -->
     
-
-    <section class="startGame hide">
+    <section class="startGame hide wrapper">
+        <img src="assets/jeopardy-logo.png" alt="Jeopardy logo">
+        <h2>This is Jeopardy!</h2>
+        <div class="startInstructions wrapper">
+            <p>All questions are multiple choice and you'll be able to choose your category and wager.</p>
+            <p>The three minute timer starts as soon as you press the button.</p>
+        </div>
         <input type="submit" value="Let's play Jeopardy" class="startButton">
     </section>
 <!-- ===============
@@ -108,8 +115,11 @@ DISPLAY TITLE, VALUE AND QUESTION
         </form>
     </section>
 
-    <section class="gameOver hide">
-        <h2>GAME OVERRRR</h2>
+    <section class="gameOver hide wrapper">
+        <img src="assets/jeopardy-logo.png" alt="Jeopardy logo">
+        <h2>GAME OVER</h2>
+        <p class="finalScore"></p> 
+        <p>Hit the button to play again.</p>
         <form action="">
             <input type="submit" value="Play again" class="testing">
         </form>
