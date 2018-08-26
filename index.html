@@ -4,128 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Basically Jeopardy!</title>
+    <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Titillium+Web:900" rel="stylesheet">
     <link rel="stylesheet" href="public/styles/style.css">
 </head>
-<body> 
-    <h1>jeopardy</h1>
-    
+<body>
+    <main class="wrapper">
 
-    <section class="startGame hide">
-        <input type="submit" value="Let's play Jeopardy" class="startButton">
-    </section>
-<!-- ===============
-CHOOSE CATEGORY AND VALUE 
-=============== -->
+        <div class="mainHeading">
+            <h1 class="h1Small">basically</h1>
+            <h1 class="h1Big">Jeopardy!</h1>
+        </div>
+    <!-- ===============
+    START GAME 
+    =============== -->
+        <section class="startGame hide wrapper">
+            <input type="submit" value="Let's play Jeopardy" class="startButton">
+        </section>
+    <!-- ===============
+    CHOOSE CATEGORY AND VALUE 
+    =============== -->
 
-    <section class="timerScore hide">
-        <h3 class="timer"></h3>
-        <h3 class="score">0</h3>
-    </section>
+        <section class="timerScore hide wrapper">
+            <h3 class="timer"></h3>
+            <h3 class="score">0</h3>
+        </section>
 
-<!-- ===============
-CATEGORY CHOICE
-=============== -->
+    <!-- ===============
+    CATEGORY CHOICE
+    =============== -->
 
-    <section class="categoryContainer hide">
-        <h2 class="categoryTitle">Choose a Category</h2>
-        <form class="categoryChoice">
-            <label for="worldCapitals">World Capitals</label>
-            <input type="radio" name="category" value="78" id="worldCapitals" class="category">
+        <section class="categoryContainer hide wrapper">
+            <h2 class="categoryTitle">Choose a Category</h2>
+            <form class="categoryChoice">
+                <label for="worldCapitals">World Capitals</label>
+                <input type="radio" name="category" value="78" id="worldCapitals" class="category">
 
-            <label for="animals">Animals</label>
-            <input type="radio" name="category" value="21" id="animals" class="category">
+                <label for="animals">Animals</label>
+                <input type="radio" name="category" value="21" id="animals" class="category">
 
-            
-            <label for="musicalInstruments">Musical Instruments</label>
-            <input type="radio" name="category" value="184" id="musicalInstruments" class="category">
-            
-            <label for="mythology">Mythology</label>
-            <input type="radio" name="category" value="680" id="mythology" class="category">
-            
-            <label for="threeLetterWords">3-Letter Words</label>
-            <input type="radio" name="category" value="105" id="threeLetterWords" class="category">
-            <!-- ======= -->
-            <label for="doubleTalk">Double Talk</label>
-            <input type="radio" name="category" value="89" id="doubleTalk" class="category">
+                
+                <label for="musicalInstruments">Musical Instruments</label>
+                <input type="radio" name="category" value="184" id="musicalInstruments" class="category">
+                
+                <label for="mythology">Mythology</label>
+                <input type="radio" name="category" value="680" id="mythology" class="category">
+                
+                <label for="threeLetterWords">3-Letter Words</label>
+                <input type="radio" name="category" value="105" id="threeLetterWords" class="category">
+                <!-- ======= -->
+                <label for="doubleTalk">Double Talk</label>
+                <input type="radio" name="category" value="89" id="doubleTalk" class="category">
 
-            <label for="nurseryRhymes">Nursery Rhymes</label>
-            <input type="radio" name="category" value="37" id="nurseryRhymes" class="category">
+                <label for="nurseryRhymes">Nursery Rhymes</label>
+                <input type="radio" name="category" value="37" id="nurseryRhymes" class="category">
 
-            <label for="fruitsAndVegetables">Fruits and Vegetables</label>
-            <input type="radio" name="category" value="777" id="fruitsAndVegetables" class="category">
+                <label for="fruitsAndVegetables">Fruits and Vegetables</label>
+                <input type="radio" name="category" value="777" id="fruitsAndVegetables" class="category">
 
-            <label for="movies">Movies</label>
-            <input type="radio" name="category" value="309" id="movies" class="category">
+                <label for="movies">Movies</label>
+                <input type="radio" name="category" value="309" id="movies" class="category">
 
-            <label for="music">Pop Music</label>
-            <input type="radio" name="category" value="770" id="music" class="category">
+                <label for="music">Pop Music</label>
+                <input type="radio" name="category" value="770" id="music" class="category">
 
-            <input type="submit" value="Choose Category" class="submitCategory">
-        </form>
-    </section>
+                <input type="submit" value="Choose Category" class="submitCategory">
+            </form>
+        </section>
 
-<!-- ===============
-VALUE CHOICE    
-=============== -->
+    <!-- ===============
+    VALUE CHOICE    
+    =============== -->
 
-    <section class="valueContainer hide">
-        <h2 class="valueTitle">For how much?</h2>
-        <form class="valueChoice">
-            <label for="two">$200</label>
-            <input type="radio" name="value" value="200" id="two" class="value">
+        <section class="valueContainer hide wrapper">
+            <h2 class="valueTitle">For how much?</h2>
+            <form class="valueChoice">
+                <label for="two">$200</label>
+                <input type="radio" name="value" value="200" id="two" class="value">
 
-            <label for="four">$400</label>
-            <input type="radio" name="value" value="400" id="four" class="value">
+                <label for="four">$400</label>
+                <input type="radio" name="value" value="400" id="four" class="value">
 
-            <label for="six">$600</label>
-            <input type="radio" name="value" value="600" id="six" class="value">
+                <label for="six">$600</label>
+                <input type="radio" name="value" value="600" id="six" class="value">
 
-            <label for="eight">$800</label>
-            <input type="radio" name="value" value="800" id="eight" class="value">
+                <label for="eight">$800</label>
+                <input type="radio" name="value" value="800" id="eight" class="value">
 
-            <label for="ten">$1000</label>
-            <input type="radio" name="value" value="1000" id="ten" class="value">
+                <label for="ten">$1000</label>
+                <input type="radio" name="value" value="1000" id="ten" class="value">
 
-            <input type="submit" value="Choose Wager" class="submitDifficulty">
-        </form>
-    </section>
+                <input type="submit" value="Choose Wager" class="submitDifficulty">
+            </form>
+        </section>
 
-<!-- ===============
-DISPLAY TITLE, VALUE AND QUESTION 
-=============== -->
+    <!-- ===============
+    DISPLAY TITLE, VALUE AND QUESTION 
+    =============== -->
 
-    <section class="questionContainer hide">
-        <h3 class="title"></h3>
-        <h4 class="value"></h4>
-        <h2 class="question"></h2>
-        <h2 class="answer"></h2>
-    </section>
-    <!--remember to add hide class to answer container-->
-    <section class="answerContainer hide">
-        <form action="" class="answerForm">
-            <!-- <input type="submit" value="Submit Answer" class="submitAnswer"> -->
-        </form>
-    </section>
+        <section class="questionContainer hide wrapper">
+            <h3 class="title"></h3>
+            <h4 class="value"></h4>
+            <h2 class="question"></h2>
+            <h2 class="answer"></h2>
+        </section>
+        <!--remember to add hide class to answer container-->
+        <section class="answerContainer hide wrapper">
+            <form action="" class="answerForm">
+                <!-- <input type="submit" value="Submit Answer" class="submitAnswer"> -->
+            </form>
+        </section>
 
-    <section class="gameOver hide">
-        <h2>GAME OVERRRR</h2>
-        <form action="">
-            <input type="submit" value="Play again" class="testing">
-        </form>
-    </section>
+        <section class="gameOver hide wrapper">
+            <h2>GAME OVERRRR</h2>
+            <form action="">
+                <input type="submit" value="Play again" class="testing">
+            </form>
+        </section>
 
 
-    <section class="right hide">
-        <p>You were right!</p>
-        <input type="submit" value="Choose next question" class="nextQuestion">
-    </section>
+        <section class="right hide wrapper">
+            <p>You were right!</p>
+            <input type="submit" value="Choose next question" class="nextQuestion">
+        </section>
 
-    <section class="wrong hide">
-        <p>Wrong answer!</p>
-        <input type="submit" value="Choose next question" class="nextQuestion">
-    </section>
+        <section class="wrong hide wrapper">
+            <p>Wrong answer!</p>
+            <input type="submit" value="Choose next question" class="nextQuestion">
+        </section>
 
+
+    </main>
 
 
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>

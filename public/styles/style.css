@@ -133,10 +133,37 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 html {
   font-size: 62.5%;
-  color: green; }
+  color: white;
+  font-family: Arial, Helvetica, sans-serif; }
+
+body {
+  background: #060ce9;
+  font-size: 3rem; }
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
+  color: yellow;
+  text-transform: uppercase; }
+
+.h1Big {
+  font-size: 5rem;
+  letter-spacing: .7rem;
+  padding-left: .7rem;
+  line-height: 4rem; }
+
+.h1Small {
+  font-size: 2rem;
+  letter-spacing: 2.5rem;
+  padding-left: 2.5rem; }
 
 .hide {
   display: none; }
 
-.answerContainer {
-  border: 1px solid red; }
+.wrapper {
+  width: 800px;
+  margin: 0 auto; }
+
+.mainHeading {
+  padding-top: 50px; }
