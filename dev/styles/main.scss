@@ -22,14 +22,17 @@ body {
 .wrapper {
     width: 320px;
     margin: 0 auto;
-    padding: 0 5%;
+    padding: 2% 5%;
     @include breakPoint(medium){
         width: 600px;
+    }
+    @include breakPoint(large){
+        width: 800px;
     }
 }
 
 .mainHeading {
-    padding-top: 50px;
+    padding-top: 25px;
 }
 
 .flex {

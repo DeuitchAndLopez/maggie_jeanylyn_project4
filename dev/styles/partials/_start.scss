@@ -25,10 +25,13 @@
 }
 
 .startInstructions {
-    width: 70%;
+    width: 95%;
     margin: 0 auto;
     margin-top: 30px;
     text-align: center;
+    @include breakPoint(medium){
+        width: 70%;
+    }
 }
 
 .alex {

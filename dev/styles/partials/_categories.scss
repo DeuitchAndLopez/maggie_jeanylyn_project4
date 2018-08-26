@@ -1,5 +1,8 @@
 .categoryTitle {
    margin: 20px 0; 
+   @include breakPoint(large){
+       text-align: center;
+   }
 }
 
 //category titles
@@ -8,13 +11,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+        @include breakPoint(large){
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+            // align-items: center
+        }
         label {
             display: block;
             // text-align: center;
             padding: 2%;
             width: 100%;
+            @include breakPoint(large){
+                width: 35%;
+                // padding: 1% 0;
+            }
             // background-color: yellow;
-
                 &:hover{
                     border: 1px solid $jeopardyYellow;
                 }
