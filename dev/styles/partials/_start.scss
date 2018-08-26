@@ -1,11 +1,3 @@
-// ===============
-// THIS IS THE BEGINNING OF THE GAME 
-// ===============
-
-// body {
-//     // background-color: rgb(6,12,233);
-//     background-color: $jeopardyBlue;
-// }
 
 .startGame img {
     width: 100%;
@@ -37,33 +29,4 @@
 .alex {
     margin-top: 50px;
     fill: black;
-    // width: 50%;
-    // height: 50%;
 }
-
-
-// .wrapper {
-//     margin: 0 auto;
-//     text-align: center;
-//     max-width: 800px;
-//     @include breakPoint(smallest){
-//         max-width: 300px;
-//         margin: 0 auto;
-//     }
-// }
-
-// .startInstructions {
-//     width: 70%;
-//     margin: 0 auto;
-// }
-
-// .startGame input, .gameOver input {
-//     height: 40px;
-//     width: 50%;
-//     background-color: white;
-//     border: 3px solid black;
-// }
-
-// .startGame input:hover, .gameOver input:hover {
-//     border: 5px solid rgb(255, 204, 0);
-// } 

@@ -1,4 +1,3 @@
-// get certain categories. look for the ids of the catorgories we want out of 100 questions 
 
 // ==============
 // CATGEORY IDS
@@ -19,36 +18,6 @@
 // rhymeTime = 215;
 // nurseryRhymes = 37; 
 // music = 70;
-
-// filter the values of them so the user can choose value 
-// make sure the value we want is there so the user has choices 
-// 100, 200, 300 = easy 
-// 400, 500, 600 = medium 
-// 800, 1000 = hard 
-
-// display all categories 
-// update the radio buttons
-// add submit button 
-// remove buttons when submit is pressed 
-// display question 
-// can we filter through the inputs so we only get valid questions?
-// can do this in the array we're given back 
-// filter through the array? 
-// display answer and the choices users can pick from for multiple choice 
-// maybe choose the answers from multiple choice with Math.random just get 5 randome answers in the category doesnt have to be specific to value but could be from the larger array of 100 objects 
-// make the random multiple choice choises and the correct answer into a button on the page 
-
-// maybe choose the answers from multiple choice with Math.random just get 5 randome answers in the category doesnt have to be specific to value but could be from the larger array of 100 objects
-
-// randomzing the answers 
-// if user chooses the the right answer then add value to score
-// link the value on click or submit
-// make a timer
-// add score
-// next question empty everything and display everything
-//timer will run out
-// display Times Up and final score
-// play again button
 
 const app = {};
 app.score = 0;
@@ -72,6 +41,7 @@ app.nextQuestion = $(".nextQuestion");
 app.answerForm = $(".answerForm");
 app.right = $(".right");
 app.wrong = $(".wrong");
+app.rightAnswer = $(".rightAnswer");
 app.gameOver = $(".gameOver");
 app.finalScore = $(".finalScore");
 
@@ -129,15 +99,16 @@ app.getAnswers = function (categoryID) {
 // ===============
 app.events = function () {
 
+    // starts the gmae
     $(app.startButton).on("click", function(e){
         e.preventDefault();
-        console.log('click');
         $(app.timerScore).removeClass("hide").addClass("flex");
         $(app.categoryContainer).removeClass("hide");
         $(app.startGame).addClass("hide");
-        app.timer(120);
+        app.timer(2);
     })
 
+    // storing the category value
     $(app.category).on("click", function () {
         app.userCategoryChoice = $(".category:checked").val();
     })
@@ -162,33 +133,25 @@ app.events = function () {
         $(app.answerContainer).removeClass("hide");
         app.getClues(app.userCategoryChoice, app.userValueChoice);
     })
-
-
 } // end of event function
 
-// ===============
-// DISPLAY RANDOM QUESTION BASED ON USER INPUT 
-// AND RANDOM ANSWERS BASED ON THE CATRGORY
-// USER PUT IN  
-// ===============
 
+// ===============
+// TIMER FUNCTION
+// ===============
 app.timer = function(seconds) {
     const now = Date.now();
     const then = now + seconds * 1000;
     displayTimeLeft(seconds);
-    // $(".timer").text(display);
-
     let countdown = setInterval(function () {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
+        // if the timer runs out, clear the timer
+        // display score 
         if (secondsLeft < 0) {
             clearInterval(countdown);
             return;
-            // $(".timer").empty();
-            // $(".timer").text(`0:0${secondsLeft}`);
         }
         displayTimeLeft(secondsLeft);
-        // $(".timer").text(`0:${secondsLeft}`);
-
         if (secondsLeft === 0){
             clearInterval(countdown);
             $(app.timerScore).addClass("hide");
@@ -199,28 +162,28 @@ app.timer = function(seconds) {
             $(app.right).addClass("hide");
             $(app.wrong).addClass("hide");
             $(app.gameOver).removeClass("hide");
- // !!! this isn't cached           
             $(app.finalScore).append(`Your score was <span>$${app.score}</span>`)
         }
 
     }, 1000);
 }
-
+    // changing timer so it's compatible with minutes
     function displayTimeLeft(seconds) {
         const minutes = Math.floor(seconds / 60);
         const remainderSeconds = seconds % 60;
         const display = `${minutes}:${remainderSeconds < 10 ? "0" : ""}${remainderSeconds}`;
         $(app.timerText).text(display);
-        // console.log({minutes, remainderSeconds});
     }
 
-    
 
-
+// ===============
+// DISPLAY RANDOM QUESTION BASED ON USER INPUT 
+// AND RANDOM ANSWERS BASED ON THE CATRGORY
+// USER PUT IN  
+// ===============
 app.displayQuestion = function (questions) {
 
-    // ARE WE EVEN USING THIS ANYMORE?? DOESN'T LOOK LIKE IT
-    // SHOULD WE BE USING GOODQUESTIONS TO APPEND INSTEAD OF QUESTIONS
+    // filtering for good questions
     const goodQuestions = questions.filter((question) => {
         return question.invalid_count === null;
     })
@@ -230,11 +193,10 @@ app.displayQuestion = function (questions) {
     let randomNum = Math.floor(Math.random() * goodQuestions.length);
     // append the random question in our index page 
     const title = $(`<h4 class="capitalize">`).text(`Category: ${goodQuestions[randomNum].category.title}`);
-
     const value = $("<h4>").text(`Wager: $${app.userValueChoice}`);
     const question = $(`<h3 class="questionText">`).text(goodQuestions[randomNum].question);
 
-    // an array with the results from .....??????
+    // an array with the results to help get random answers
     let result = [];
 
     // ===============
@@ -260,26 +222,30 @@ app.displayQuestion = function (questions) {
         let answersWithoutRandomCharacters = result.forEach((item) => {
             newAnswersWithoutRandomCharacters = item.replace(re, '');
             emptyArray.push(newAnswersWithoutRandomCharacters)
-            // console.log(newAnswersWithoutRandomCharacters);
         })
+
+        console.log(app.correctAnswer);
+        app.correctAnswer = app.correctAnswer.replace(re, "")
+
+
+        // let re = /<\/?[\w\s="/.':;#-\/\?]+>/gi
+        // var result = '<i>hello</i>';
+        // var newResult = result.replace(re, '');
+        // console.log(newResult); 
 
         // filter through answers to make sure they're unique 
         // and duplicates don't show up 
         let uniqueAnswers = new Set(emptyArray);
         uniqueAnswers.add(app.correctAnswer);
-        console.log("These are unique answers in a Set");
-        console.log(uniqueAnswers);
 
         // loop through new array of unique answers 
         // and append the answers in the array
-        for (let answer of uniqueAnswers.values()) {
-            // $(".answerContainer").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)
-        }
+        // for (let answer of uniqueAnswers.values()) {
+        //     // $(".answerContainer").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)
+        // }
 
         // this takes the new Set and makes it into an array
         let backToRegArray = Array.from(uniqueAnswers);
-        // console.log("This is a regular array again");
-        // console.log(backToRegArray);
 
         // looping over regular array 
         // to make sure we only have 5 answers 
@@ -289,31 +255,29 @@ app.displayQuestion = function (questions) {
 
         // this randomizes the order of the array. 
         backToRegArray.sort(function (a, b) { return 0.5 - Math.random() });
-        console.log("Array in random order");
-        console.log(backToRegArray);
 
         // for every answer append it to the page 
         for (let answer of backToRegArray) {
             $(app.answerForm).append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}" class="capitalize">${answer}</label>`);
-
         }
         // appending the submit button 
         $(app.answerForm).append(`<input type="submit" value="Submit Answer" class="submitAnswer button">`);
-        // grab the value of what they chose 
-        // and compare to value of the correct answer 
-        // if it matches score increase 
-
+        
+        // storing user's answer choice
         $(".answers").on("click", function () {
             console.log("clicked on an answer")
             app.userValueChoice = $(".answers:checked").val();
         })
 
+        // submitting the answer and comparing the user choice to correct answer 
         $(".submitAnswer").on("click", function (e) {
             e.preventDefault();
             console.log("clicked submit button");
             $(app.questionContainer).addClass("hide").empty();
             $(app.answerForm).empty();
             $(app.answerContainer).addClass("hide")
+            // if user choice is correct show right page
+            // if not show the wrong page
             if (app.userValueChoice === app.correctAnswer) {
                 app.score = app.score + goodQuestions[randomNum].value;
                 $(app.scoreText).text(`Score: $${app.score}`)
@@ -322,18 +286,17 @@ app.displayQuestion = function (questions) {
                 app.score = app.score - goodQuestions[randomNum].value;
                 $(app.scoreText).text(`Score: $${app.score}`)
                 $(app.wrong).removeClass("hide")
+                $(app.rightAnswer).text(`The right answer was ${app.correctAnswer}`)
             }
         })
 
+        // go to the next question
         $(app.nextQuestion).on("click", function(e){
             e.preventDefault();
             $(app.categoryContainer).removeClass("hide");
-            // $(".nextQuestion").addClass("hide");
             $(app.wrong).addClass("hide");
             $(app.right).addClass("hide");
         })
-
-
 
     } // end of wrong answers function 
 
@@ -345,8 +308,6 @@ app.displayQuestion = function (questions) {
     const displayAnswers = function () {
         // this is the correct answer 
         app.correctAnswer = goodQuestions[randomNum].answer;
-        // console.log("This is the right answer");
-        // console.log(app.correctAnswer);
 
         // pushing the correct answer into result 
         result.push(app.correctAnswer);
@@ -356,11 +317,10 @@ app.displayQuestion = function (questions) {
 
     }
 
-
+    // displaying info for random question
     $(app.questionContainer).append(title, value, question);
     displayAnswers();
 } // end of displayQuestions function
-
 
 // ===============
 // INITIALIZE THE APP
