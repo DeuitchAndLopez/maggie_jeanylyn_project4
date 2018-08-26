@@ -224,14 +224,7 @@ app.displayQuestion = function (questions) {
             emptyArray.push(newAnswersWithoutRandomCharacters)
         })
 
-        console.log(app.correctAnswer);
         app.correctAnswer = app.correctAnswer.replace(re, "")
-
-
-        // let re = /<\/?[\w\s="/.':;#-\/\?]+>/gi
-        // var result = '<i>hello</i>';
-        // var newResult = result.replace(re, '');
-        // console.log(newResult); 
 
         // filter through answers to make sure they're unique 
         // and duplicates don't show up 
@@ -265,14 +258,12 @@ app.displayQuestion = function (questions) {
         
         // storing user's answer choice
         $(".answers").on("click", function () {
-            console.log("clicked on an answer")
             app.userValueChoice = $(".answers:checked").val();
         })
 
         // submitting the answer and comparing the user choice to correct answer 
         $(".submitAnswer").on("click", function (e) {
             e.preventDefault();
-            console.log("clicked submit button");
             $(app.questionContainer).addClass("hide").empty();
             $(app.answerForm).empty();
             $(app.answerContainer).addClass("hide")
