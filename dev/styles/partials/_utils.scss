@@ -1,12 +1,10 @@
 
-// $highlight-color: rgb(189, 36, 36); 
 $mainTitle: 'Titillium Web', sans-serif;
 $jeopardyBlue: rgb(6, 12, 233);
 $jeopardyYellow: rgb(255, 204, 0);
 
 
 @mixin breakPoint($point) {
-
   @if $point == medium {
       @media (min-width: 620px) { @content; }
   } 
@@ -14,17 +12,4 @@ $jeopardyYellow: rgb(255, 204, 0);
   @else if $point == large {
       @media (min-width: 800px) { @content; }
   } 
-
-  // @else if $point == mediumish {
-  //   @media (max-width: 670px) { @content; }
-  // }
-  
-  // @else if $point == small {
-  //   @media (max-width: 500px) { @content; }
-  // }  
-
-  // @else if $point == smallest {
-  //   @media (max-width: 333px) { @content; }
-  // }  
-
 }

@@ -1,3 +1,4 @@
+
 .answerForm {
     display: flex;
     flex-direction: column;
@@ -28,7 +29,6 @@ input:focus + label {
 }
 
 .answerForm input[type="radio"]{
-    // visibility: hidden;
     position: fixed;
     opacity: 0
 }

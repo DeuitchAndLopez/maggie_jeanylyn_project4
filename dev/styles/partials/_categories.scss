@@ -16,18 +16,14 @@
             flex-wrap: wrap;
             justify-content: space-around;
             width: 100%;
-            // align-items: center
         }
         label {
             display: block;
-            // text-align: center;
             padding: 2%;
             width: 100%;
             @include breakPoint(large){
                 width: 35%;
-                // padding: 1% 0;
             }
-            // background-color: yellow;
                 &:hover{
                     border: 1px solid $jeopardyYellow;
                 }
@@ -36,14 +32,6 @@
 
 }
 
-// .h4LineHeight {
-//     @include breakPoint(medium){
-//         line-height: 10px; 
-
-//     }
-// }
-
-//hide radio buttons
 .category {
     position: fixed;
     opacity: 0;
