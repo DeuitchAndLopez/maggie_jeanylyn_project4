@@ -1,4 +1,7 @@
 
+// font-family: 'Fascinate Inline', cursive;
+
+
 html {
     font-size: 62.5%;
     color: white; 
@@ -14,20 +17,53 @@ h1 {
     font-family: $mainTitle;
     color: $jeopardyYellow;
     text-transform: uppercase;
+}
 
+.h1Small {
+    font-size: 1.5rem;
+   letter-spacing: 2.2rem;
+   padding-left: 2.2rem;
 }
 
 
 
 //for mobile
 .h1Big {
-    font-size: 4rem;
-    letter-spacing: 0.9rem;
-    padding-left: 0.9rem;
-    line-height: 4rem;
+   font-size: 4rem;
+   letter-spacing: 0.9rem;
+   padding-left: 0.9rem;
+   line-height: 4rem;
 }
 
-//for desktop
+h2 {
+    font-size: 3rem;
+}
+
+
+p {
+    font-size: 1.8rem;
+}
+
+input {
+    font-size: 1.5rem;
+}
+
+// h1 {
+//     margin: 0;
+//     text-align: center;
+//     font-family: $mainTitle;
+//     color: rgb(255, 204, 0);
+//     text-transform: uppercase;
+//     @include breakPoint(smallest){
+//         .h1Small {
+//         font-size: 1.5rem;
+//         letter-spacing: 2.2rem;
+//         padding-left: 2.2rem;
+//         }
+//     }
+// }
+
+
 
 // .h1Big {
 //     font-size: 5rem;
@@ -36,21 +72,14 @@ h1 {
 //     line-height: 4rem;
 // }
 
-//for mobile
-.h1Small {
-    font-size: 1.5rem;
-    letter-spacing: 2.2rem;
-    padding-left: 2.2rem;
-}
-
-//for desktop
-
 // .h1Small {
 //     font-size: 2rem;
 //     letter-spacing: 2.5rem;
 //     padding-left: 2.5rem;
-// }
-
-// p {
-//     font-size: 3rem;
+//     @include breakPoint(smallest){
+//         font-size: 4rem;
+//         letter-spacing: 0.9rem;
+//         padding-left: 0.9rem;
+//         line-height: 4rem;
+//     }
 // }

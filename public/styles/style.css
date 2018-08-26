@@ -143,16 +143,35 @@ h1 {
   color: #ffcc00;
   text-transform: uppercase; }
 
+.h1Small {
+  font-size: 1.5rem;
+  letter-spacing: 2.2rem;
+  padding-left: 2.2rem; }
+
 .h1Big {
   font-size: 4rem;
   letter-spacing: 0.9rem;
   padding-left: 0.9rem;
   line-height: 4rem; }
 
+<<<<<<< HEAD
 .h1Small {
   font-size: 1.5rem;
   letter-spacing: 2.2rem;
   padding-left: 2.2rem; }
+=======
+h2 {
+  font-size: 3rem; }
+
+p {
+  font-size: 1.8rem; }
+
+input {
+  font-size: 1.5rem; }
+
+body {
+  background-color: #060ce9; }
+>>>>>>> 89046d2df4cc4fcf27928b1cd130d7e8d354af8c
 
 .button {
   display: block;
@@ -211,15 +230,23 @@ h1 {
   font-weight: bold; }
 
 body {
+<<<<<<< HEAD
   background: #060ce9;
   font-size: 2rem; }
+=======
+  background-color: #060ce9; }
+>>>>>>> 89046d2df4cc4fcf27928b1cd130d7e8d354af8c
 
 .hide {
   display: none; }
 
 .wrapper {
+<<<<<<< HEAD
   width: 300px;
   padding: 2%;
+=======
+  max-width: 320px;
+>>>>>>> 89046d2df4cc4fcf27928b1cd130d7e8d354af8c
   margin: 0 auto; }
 
 .mainHeading {
