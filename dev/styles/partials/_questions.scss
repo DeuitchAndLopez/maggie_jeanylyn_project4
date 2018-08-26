@@ -1,7 +1,38 @@
-// .answers {
-//     input[type="radio"]{
-//     // visibility: hidden;
-//     // position: fixed;
-//     // opacity: 0;
-//     display: none;
-// }
+
+.answerForm {
+    display: flex;
+    // display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    h3 {
+        font: size
+    }
+}
+
+label {
+    display: block;
+    padding: 2%;
+    width: 100%;
+        &:hover{
+            border: 1px solid $jeopardyYellow; 
+    }
+}
+
+label:focus-within{
+    border: 1px solid $jeopardyYellow; 
+}
+
+input:focus + label {
+    border: 1px solid $jeopardyYellow;
+}
+
+.answerForm input[type="radio"]{
+    // visibility: hidden;
+    position: fixed;
+    opacity: 0
+}
+
+.submitAnswer {
+    margin-top: 20px; 
+}
