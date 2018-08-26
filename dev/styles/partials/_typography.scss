@@ -9,8 +9,6 @@ html {
 
 }
 
-
-
 h1 {
     margin: 0;
     text-align: center;
@@ -37,13 +35,32 @@ h1 {
 
 h2 {
     font-size: 3rem; 
+     font-family: $mainTitle;
 }
 
+// display question 
+h3 {
+    font-size: 2.5rem;
+}
 
-p {
+// Category title and wager
+h4 {
+    font-size: 2rem;
+    line-height: 0px;
+}
+
+p, label {
     font-size: 1.8rem;
 }
 
 input {
     font-size: 1.4rem;
+}
+
+.notBolded {
+    font-weight: normal;
+}
+
+.capitalize {
+    text-transform: capitalize;
 }

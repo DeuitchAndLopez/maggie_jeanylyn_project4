@@ -1,13 +1,13 @@
-
 .answerForm {
     display: flex;
-    // display: block;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    h3 {
-        font: size
-    }
+   
+}
+
+.questionText {
+     color: $jeopardyYellow;
 }
 
 label {
