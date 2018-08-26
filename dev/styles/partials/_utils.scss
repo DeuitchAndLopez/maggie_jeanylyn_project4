@@ -6,24 +6,25 @@ $jeopardyYellow: rgb(255, 204, 0);
 
 
 @mixin breakPoint($point) {
-  @if $point == large {
-      @media (max-width: 925px) { @content; }
+
+  @if $point == medium {
+      @media (min-width: 620px) { @content; }
   } 
   
-  @else if $point == medium {
-      @media (max-width: 775px) { @content; }
-  } 
+  // @else if $point == large {
+  //     @media (max-width: 775px) { @content; }
+  // } 
 
-  @else if $point == mediumish {
-    @media (max-width: 670px) { @content; }
-  }
+  // @else if $point == mediumish {
+  //   @media (max-width: 670px) { @content; }
+  // }
   
-  @else if $point == small {
-    @media (max-width: 500px) { @content; }
-  }  
+  // @else if $point == small {
+  //   @media (max-width: 500px) { @content; }
+  // }  
 
-  @else if $point == smallest {
-    @media (max-width: 333px) { @content; }
-  }  
+  // @else if $point == smallest {
+  //   @media (max-width: 333px) { @content; }
+  // }  
 
 }

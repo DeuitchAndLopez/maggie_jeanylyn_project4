@@ -135,7 +135,7 @@ app.events = function () {
         $(app.timerScore).removeClass("hide").addClass("flex");
         $(app.categoryContainer).removeClass("hide");
         $(app.startGame).addClass("hide");
-        app.timer(3200);
+        app.timer(2);
     })
 
     $(app.category).on("click", function () {
@@ -200,7 +200,7 @@ app.timer = function(seconds) {
             $(app.wrong).addClass("hide");
             $(app.gameOver).removeClass("hide");
  // !!! this isn't cached           
-            $(app.finalScore).append(`Your score was <span>${app.score}</span>`)
+            $(app.finalScore).append(`Your score was <span>$${app.score}</span>`)
         
         }
 
