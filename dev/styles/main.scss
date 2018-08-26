@@ -27,3 +27,13 @@ body {
 .mainHeading {
     padding-top: 50px;
 }
+
+.timerScore {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.timer, .score {
+    margin: 5px 10px;
+}
