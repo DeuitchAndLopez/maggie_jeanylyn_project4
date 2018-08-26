@@ -147,12 +147,22 @@ h1 {
   font-size: 1.5rem;
   letter-spacing: 2.2rem;
   padding-left: 2.2rem; }
+  @media (min-width: 620px) {
+    .h1Small {
+      font-size: 2.5rem;
+      letter-spacing: 2.7rem;
+      padding-left: 2.7rem; } }
 
 .h1Big {
   font-size: 4rem;
   letter-spacing: 0.9rem;
   padding-left: 0.9rem;
   line-height: 4rem; }
+  @media (min-width: 620px) {
+    .h1Big {
+      font-size: 5rem;
+      letter-spacing: 1.2rem;
+      padding-left: 1.2rem; } }
 
 h2 {
   font-size: 3rem;
@@ -194,7 +204,7 @@ input {
 .startInstructions {
   width: 70%;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: center; }
 
 .alex {
@@ -294,7 +304,6 @@ input:focus + label {
     line-height: 30px;
     margin: 0 auto; }
   .gameOver h1 {
-    margin-top: 40px;
     font-size: 4rem;
     color: white; }
   .gameOver input {
@@ -316,9 +325,12 @@ body {
   display: none; }
 
 .wrapper {
-  max-width: 320px;
+  width: 320px;
   margin: 0 auto;
   padding: 0 5%; }
+  @media (min-width: 620px) {
+    .wrapper {
+      width: 600px; } }
 
 .mainHeading {
   padding-top: 50px; }
@@ -327,6 +339,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  @media (min-width: 620px) {
+    .flex {
+      justify-content: center; } }
 
 .timerContainer {
   display: flex;
@@ -341,3 +356,6 @@ body {
 
 .score {
   margin: 5px 0; }
+  @media (min-width: 620px) {
+    .score {
+      margin-left: 10px; } }
