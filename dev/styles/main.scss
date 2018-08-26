@@ -10,17 +10,31 @@
 
 // testing delete this!
 
-
+body {
+    background: $jeopardyBlue;
+    font-size: 2rem;
+}
 
 .hide {
     display: none;
 }
 
 .wrapper {
-    width: 800px;
+    width: 300px;
+    padding: 2%;
     margin: 0 auto;
 }
 
 .mainHeading {
     padding-top: 50px;
+}
+
+.timerScore {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.timer, .score {
+    margin: 5px 10px;
 }

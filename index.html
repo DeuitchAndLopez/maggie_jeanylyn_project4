@@ -7,11 +7,12 @@
     <title>Basically Jeopardy!</title>
     <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Titillium+Web:900" rel="stylesheet">
     <link rel="stylesheet" href="public/styles/style.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' crossorigin='anonymous'>
 </head>
 <body>
     <main class="wrapper">
 
-        <div class="mainHeading">
+        <div class="mainHeading wrapper">
             <h1 class="h1Small">basically</h1>
             <h1 class="h1Big">Jeopardy!</h1>
         </div>
@@ -19,7 +20,11 @@
     START GAME 
     =============== -->
         <section class="startGame hide wrapper">
-            <input type="submit" value="Let's play Jeopardy" class="startButton">
+            <div class="startInstructions">
+                <p>All questions are multiple choice and you'll be able to choose your category and wager.</p>
+                <p>The three minute timer starts as soon as you press the button.</p>
+            </div>
+            <input type="submit" value="Let's play Jeopardy" class="startButton wrapper button">
         </section>
     <!-- ===============
     CHOOSE CATEGORY AND VALUE 
@@ -37,10 +42,10 @@
         <section class="categoryContainer hide wrapper">
             <h2 class="categoryTitle">Choose a Category</h2>
             <form class="categoryChoice">
-                <label for="worldCapitals">World Capitals</label>
+                <label for="worldCapitals"><i class="fas fa-globe-americas"></i> World Capitals</label>
                 <input type="radio" name="category" value="78" id="worldCapitals" class="category">
 
-                <label for="animals">Animals</label>
+                <label for="animals"><i class="fas fa-frog"></i> Animals</label>
                 <input type="radio" name="category" value="21" id="animals" class="category">
 
                 
@@ -68,7 +73,7 @@
                 <label for="music">Pop Music</label>
                 <input type="radio" name="category" value="770" id="music" class="category">
 
-                <input type="submit" value="Choose Category" class="submitCategory">
+                <input type="submit" value="Choose Category" class="submitCategory button">
             </form>
         </section>
 
@@ -94,7 +99,7 @@
                 <label for="ten">$1000</label>
                 <input type="radio" name="value" value="1000" id="ten" class="value">
 
-                <input type="submit" value="Choose Wager" class="submitDifficulty">
+                <input type="submit" value="Choose Wager" class="submitDifficulty button">
             </form>
         </section>
 
@@ -116,21 +121,23 @@
         </section>
 
         <section class="gameOver hide wrapper">
-            <h2>GAME OVERRRR</h2>
+            <h1>GAME OVER</h1>
+            <h2 class="finalScore"></h2>
+            <p>Thanks for playing.<br>Hit the button to play again!</p>
             <form action="">
-                <input type="submit" value="Play again" class="testing">
+                <input type="submit" value="Play again" class="testing button">
             </form>
         </section>
 
 
         <section class="right hide wrapper">
             <p>You were right!</p>
-            <input type="submit" value="Choose next question" class="nextQuestion">
+            <input type="submit" value="Choose next question" class="nextQuestion button">
         </section>
 
         <section class="wrong hide wrapper">
             <p>Wrong answer!</p>
-            <input type="submit" value="Choose next question" class="nextQuestion">
+            <input type="submit" value="Choose next question" class="nextQuestion button">
         </section>
 
 

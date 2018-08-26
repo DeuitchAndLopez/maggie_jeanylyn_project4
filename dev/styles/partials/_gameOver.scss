@@ -1,0 +1,40 @@
+.gameOver {
+    text-align: center;
+    p {
+        width: 70%;
+        line-height: 30px;
+        margin: 0 auto;
+    }
+    h1{
+        // font-size: 4rem;
+        color: white;
+    }
+    input {
+        margin-top: 20px;
+    }
+}
+
+.answers {
+    input {
+        display: block;
+        display: flex;
+        align-content: column;
+
+    }
+}
+
+// .answers {
+//     input[type="radio"]:checked{
+//     // visibility: hidden;
+//     // position: fixed;
+//     // opacity: 0;
+
+//     display: none;
+// }
+
+.finalScore {
+    span {
+        color: $jeopardyYellow;
+        font-weight: bold;   
+    }
+}
