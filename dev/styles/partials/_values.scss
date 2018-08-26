@@ -1,0 +1,40 @@
+.valueTitle {
+    margin: 20px 0;
+}
+
+//category titles
+.valueChoice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+        label {
+            display: block;
+            // text-align: center;
+            padding: 2%;
+            width: 100%;
+            // background-color: yellow;
+
+                &:hover{
+                    border: 1px solid $jeopardyYellow;
+                }
+
+        }
+
+}
+
+//hide radio buttons
+.value {
+    position: fixed;
+    opacity: 0;
+    
+        &:focus + label {
+            border: 1px solid $jeopardyYellow;
+        }
+}
+    
+//submit button
+.submitDifficulty {
+    margin: 20px;
+}

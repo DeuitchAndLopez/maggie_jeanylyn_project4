@@ -132,10 +132,10 @@ app.events = function () {
     $(app.startButton).on("click", function(e){
         e.preventDefault();
         console.log('click');
-        $(app.timerScore).removeClass("hide");
+        $(app.timerScore).removeClass("hide").addClass("flex");
         $(app.categoryContainer).removeClass("hide");
         $(app.startGame).addClass("hide");
-        app.timer(10);
+        app.timer(3200);
     })
 
     $(app.category).on("click", function () {
@@ -316,11 +316,11 @@ app.displayQuestion = function (questions) {
             $(app.answerContainer).addClass("hide")
             if (app.userValueChoice === app.correctAnswer) {
                 app.score = app.score + goodQuestions[randomNum].value;
-                $(app.scoreText).text(`${app.score}`)
+                $(app.scoreText).text(`Score: $${app.score}`)
                 $(app.right).removeClass("hide")
             } else {
                 app.score = app.score - goodQuestions[randomNum].value;
-                $(app.scoreText).text(`${app.score}`)
+                $(app.scoreText).text(`Score: $${app.score}`)
                 $(app.wrong).removeClass("hide")
             }
         })

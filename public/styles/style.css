@@ -154,12 +154,6 @@ h1 {
   padding-left: 0.9rem;
   line-height: 4rem; }
 
-<<<<<<< HEAD
-.h1Small {
-  font-size: 1.5rem;
-  letter-spacing: 2.2rem;
-  padding-left: 2.2rem; }
-=======
 h2 {
   font-size: 3rem; }
 
@@ -171,7 +165,6 @@ input {
 
 body {
   background-color: #060ce9; }
->>>>>>> 89046d2df4cc4fcf27928b1cd130d7e8d354af8c
 
 .button {
   display: block;
@@ -187,6 +180,10 @@ body {
   margin: 0 auto;
   margin-top: 50px;
   text-align: center; }
+
+.alex {
+  margin-top: 50px;
+  fill: black; }
 
 .categoryTitle {
   margin: 20px 0; }
@@ -204,10 +201,44 @@ body {
       border: 1px solid #ffcc00; }
 
 .category {
-  display: none; }
+  position: fixed;
+  opacity: 0; }
+  .category:focus + label {
+    border: 1px solid #ffcc00; }
 
 .submitCategory {
   margin: 20px; }
+
+.valueTitle {
+  margin: 20px 0; }
+
+.valueChoice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .valueChoice label {
+    display: block;
+    padding: 2%;
+    width: 100%; }
+    .valueChoice label:hover {
+      border: 1px solid #ffcc00; }
+
+.value {
+  position: fixed;
+  opacity: 0; }
+  .value:focus + label {
+    border: 1px solid #ffcc00; }
+
+.submitDifficulty {
+  margin: 20px; }
+
+.right, .wrong {
+  text-align: center; }
+  .right h1, .wrong h1 {
+    color: white; }
+  .right img, .wrong img {
+    width: 100%; }
 
 .gameOver {
   text-align: center; }
@@ -230,29 +261,19 @@ body {
   font-weight: bold; }
 
 body {
-<<<<<<< HEAD
-  background: #060ce9;
-  font-size: 2rem; }
-=======
   background-color: #060ce9; }
->>>>>>> 89046d2df4cc4fcf27928b1cd130d7e8d354af8c
 
 .hide {
   display: none; }
 
 .wrapper {
-<<<<<<< HEAD
-  width: 300px;
-  padding: 2%;
-=======
   max-width: 320px;
->>>>>>> 89046d2df4cc4fcf27928b1cd130d7e8d354af8c
   margin: 0 auto; }
 
 .mainHeading {
   padding-top: 50px; }
 
-.timerScore {
+.flex {
   display: flex;
   justify-content: flex-end; }
 
