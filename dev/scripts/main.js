@@ -51,6 +51,36 @@
 // play again button
 
 const app = {};
+app.score = 0;
+
+app.startButton = $(".startButton");
+app.timerScore = $(".timerScore");
+app.timerText = $(".timer");
+app.scoreText = $(".score");
+
+
+app.startGame = $(".startGame");
+app.category = $(".category");
+app.value = $(".value");
+
+
+app.submitCategory = $(".submitCategory");
+app.submitDifficulty = $(".submitDifficulty");
+app.nextQuestion = $(".nextQuestion");
+
+
+app.answerForm = $(".answerForm");
+app.right = $(".right");
+app.wrong = $(".wrong");
+app.gameOver = $(".gameOver");
+app.finalScore = $(".finalScore")
+
+
+app.categoryContainer = $(".categoryContainer");
+app.valueContainer = $(".valueContainer");
+app.questionContainer = $(".questionContainer");
+app.answerContainer = $(".answerContainer");
+
 
 // ==============
 // GETTING INFO FROM THE API
@@ -58,7 +88,6 @@ const app = {};
 // BASED ON CATEGORY AND VALUE
 // ==============
 
-app.score = 0;
 
 app.getClues = function (categoryID, valueID) {
     $.ajax({
@@ -100,37 +129,37 @@ app.getAnswers = function (categoryID) {
 // ===============
 app.events = function () {
 
-    $(".startButton").on("click", function(e){
+    $(app.startButton).on("click", function(e){
         e.preventDefault();
         console.log('click');
-        $(".timerScore").removeClass("hide");
-        $(".categoryContainer").removeClass("hide");
-        $(".startGame").addClass("hide");
-        app.timer(2);
+        $(app.timerScore).removeClass("hide");
+        $(app.categoryContainer).removeClass("hide");
+        $(app.startGame).addClass("hide");
+        app.timer(5);
     })
 
-    $(".category").on("click", function () {
+    $(app.category).on("click", function () {
         app.userCategoryChoice = $(".category:checked").val();
     })
 
     // When user submits, hide Categories and show value choices 
-    $(".submitCategory").on("click", function (e) {
+    $(app.submitCategory).on("click", function (e) {
         e.preventDefault();
-        $(".categoryContainer").addClass("hide");
-        $(".valueContainer").removeClass("hide");
+        $(app.categoryContainer).addClass("hide");
+        $(app.valueContainer).removeClass("hide");
     })
 
     // When user submits, store value 
-    $(".value").on("click", function () {
+    $(app.value).on("click", function () {
         app.userValueChoice = $(".value:checked").val();
     })
 
     // When user submits value hide the value and show the random question
-    $(".submitDifficulty").on("click", function (e) {
+    $(app.submitDifficulty).on("click", function (e) {
         e.preventDefault();
-        $(".valueContainer").addClass("hide");
-        $(".questionContainer").removeClass("hide");
-        $(".answerContainer").removeClass("hide");
+        $(app.valueContainer).addClass("hide");
+        $(app.questionContainer).removeClass("hide");
+        $(app.answerContainer).removeClass("hide");
         app.getClues(app.userCategoryChoice, app.userValueChoice);
     })
 
@@ -162,15 +191,16 @@ app.timer = function(seconds) {
 
         if (secondsLeft === 0){
             clearInterval(countdown);
-            $(".timerScore").addClass("hide");
-            $(".categoryContainer").addClass("hide");
-            $(".questionContainer").addClass("hide");
-            $(".valueContainer").addClass("hide");
-            $(".answerContainer").addClass("hide");
-            $(".right").addClass("hide");
-            $(".wrong").addClass("hide");
-            $(".gameOver").removeClass("hide");
-            $(".finalScore").append(`Thanks for playing! <br> Your score was ${app.score}.`)
+            $(app.timerScore).addClass("hide");
+            $(app.categoryContainer).addClass("hide");
+            $(app.questionContainer).addClass("hide");
+            $(app.valueContainer).addClass("hide");
+            $(app.answerContainer).addClass("hide");
+            $(app.right).addClass("hide");
+            $(app.wrong).addClass("hide");
+            $(app.gameOver).removeClass("hide");
+ // !!! this isn't cached           
+            $(app.finalScore).append(`Thanks for playing! <br> Your score was ${app.score}.`)
         
         }
 
@@ -181,7 +211,7 @@ app.timer = function(seconds) {
         const minutes = Math.floor(seconds / 60);
         const remainderSeconds = seconds % 60;
         const display = `${minutes}:${remainderSeconds < 10 ? "0" : ""}${remainderSeconds}`;
-        $(".timer").text(display);
+        $(app.timerText).text(display);
         // console.log({minutes, remainderSeconds});
     }
 
@@ -264,11 +294,11 @@ app.displayQuestion = function (questions) {
 
         // for every answer append it to the page 
         for (let answer of backToRegArray) {
-            $(".answerForm").append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)
+            $(app.answerForm).append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)
 
         }
         // appending the submit button 
-        $(".answerForm").append(`<input type="submit" value="Submit Answer" class="submitAnswer">`);
+        $(app.answerForm).append(`<input type="submit" value="Submit Answer" class="submitAnswer">`);
         // grab the value of what they chose 
         // and compare to value of the correct answer 
         // if it matches score increase 
@@ -281,26 +311,26 @@ app.displayQuestion = function (questions) {
         $(".submitAnswer").on("click", function (e) {
             e.preventDefault();
             console.log("clicked submit button");
-            $(".questionContainer").addClass("hide").empty();
-            $(".answerForm").empty();
-            $(".answerContainer").addClass("hide")
+            $(app.questionContainer).addClass("hide").empty();
+            $(app.answerForm).empty();
+            $(app.answerContainer).addClass("hide")
             if (app.userValueChoice === app.correctAnswer) {
                 app.score = app.score + goodQuestions[randomNum].value;
-                $(".score").text(`${app.score}`)
-                $(".right").removeClass("hide")
+                $(app.scoreText).text(`${app.score}`)
+                $(app.right).removeClass("hide")
             } else {
-                app.score =app.score - goodQuestions[randomNum].value;
-                $(".score").text(`${app.score}`)
-                $(".wrong").removeClass("hide")
+                app.score = app.score - goodQuestions[randomNum].value;
+                $(app.scoreText).text(`${app.score}`)
+                $(app.wrong).removeClass("hide")
             }
         })
 
-        $(".nextQuestion").on("click", function(e){
+        $(app.nextQuestion).on("click", function(e){
             e.preventDefault();
-            $(".categoryContainer").removeClass("hide");
+            $(app.categoryContainer).removeClass("hide");
             // $(".nextQuestion").addClass("hide");
-            $(".wrong").addClass("hide");
-            $(".right").addClass("hide");
+            $(app.wrong).addClass("hide");
+            $(app.right).addClass("hide");
         })
 
 
@@ -327,7 +357,7 @@ app.displayQuestion = function (questions) {
     }
 
 
-    $(".questionContainer").append(title, value, question);
+    $(app.questionContainer).append(title, value, question);
     displayAnswers();
 } // end of displayQuestions function
 
@@ -337,7 +367,7 @@ app.displayQuestion = function (questions) {
 // ===============
 app.init = function () {
     app.events();
-    $(".startGame").removeClass("hide");
+    $(app.startGame).removeClass("hide");
 }
 
 // ===============
