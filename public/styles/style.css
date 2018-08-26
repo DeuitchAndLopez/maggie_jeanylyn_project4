@@ -152,6 +152,11 @@ h1 {
       font-size: 2.5rem;
       letter-spacing: 2.7rem;
       padding-left: 2.7rem; } }
+  @media (min-width: 800px) {
+    .h1Small {
+      font-size: 3rem;
+      letter-spacing: 3.2rem;
+      padding-left: 3.2rem; } }
 
 .h1Big {
   font-size: 4rem;
@@ -163,6 +168,11 @@ h1 {
       font-size: 5rem;
       letter-spacing: 1.2rem;
       padding-left: 1.2rem; } }
+  @media (min-width: 800px) {
+    .h1Big {
+      font-size: 6rem;
+      letter-spacing: 1.5rem;
+      padding-left: 1.5rem; } }
 
 h2 {
   font-size: 3rem;
@@ -202,10 +212,13 @@ input {
   background-color: #ffcc00; }
 
 .startInstructions {
-  width: 70%;
+  width: 95%;
   margin: 0 auto;
   margin-top: 30px;
   text-align: center; }
+  @media (min-width: 620px) {
+    .startInstructions {
+      width: 70%; } }
 
 .alex {
   margin-top: 50px;
@@ -213,16 +226,28 @@ input {
 
 .categoryTitle {
   margin: 20px 0; }
+  @media (min-width: 800px) {
+    .categoryTitle {
+      text-align: center; } }
 
 .categoryChoice {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+  @media (min-width: 800px) {
+    .categoryChoice {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 100%; } }
   .categoryChoice label {
     display: block;
     padding: 2%;
     width: 100%; }
+    @media (min-width: 800px) {
+      .categoryChoice label {
+        width: 35%; } }
     .categoryChoice label:hover {
       border: 1px solid #ffcc00; }
 
@@ -327,13 +352,16 @@ body {
 .wrapper {
   width: 320px;
   margin: 0 auto;
-  padding: 0 5%; }
+  padding: 2% 5%; }
   @media (min-width: 620px) {
     .wrapper {
       width: 600px; } }
+  @media (min-width: 800px) {
+    .wrapper {
+      width: 800px; } }
 
 .mainHeading {
-  padding-top: 50px; }
+  padding-top: 25px; }
 
 .flex {
   display: flex;

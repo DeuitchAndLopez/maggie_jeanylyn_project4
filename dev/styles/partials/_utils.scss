@@ -11,9 +11,9 @@ $jeopardyYellow: rgb(255, 204, 0);
       @media (min-width: 620px) { @content; }
   } 
   
-  // @else if $point == large {
-  //     @media (max-width: 775px) { @content; }
-  // } 
+  @else if $point == large {
+      @media (min-width: 800px) { @content; }
+  } 
 
   // @else if $point == mediumish {
   //   @media (max-width: 670px) { @content; }
