@@ -10,15 +10,17 @@
 
 // testing delete this!
 
-html {
-    font-size: 62.5%;
-    color: green;
-}
+
 
 .hide {
     display: none;
 }
 
-.answerContainer {
-    border: 1px solid red;
+.wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.mainHeading {
+    padding-top: 50px;
 }
