@@ -230,9 +230,10 @@ app.displayQuestion = function (questions) {
     // based on that random number 
     let randomNum = Math.floor(Math.random() * goodQuestions.length);
     // append the random question in our index page 
-    const title = $("<h3>").text(`Category: ${goodQuestions[randomNum].category.title}`);
-    const value = $("<h3>").text(`Wager: ${app.userValueChoice}`);
-    const question = $("<h2>").text(goodQuestions[randomNum].question);
+    const title = $(`<h4 class="capitalize">`).text(`Category: ${goodQuestions[randomNum].category.title}`);
+
+    const value = $("<h4>").text(`Wager: $${app.userValueChoice}`);
+    const question = $(`<h3 class="questionText">`).text(goodQuestions[randomNum].question);
 
     // an array with the results from .....??????
     let result = [];

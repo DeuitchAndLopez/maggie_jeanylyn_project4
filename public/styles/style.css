@@ -155,13 +155,27 @@ h1 {
   line-height: 4rem; }
 
 h2 {
-  font-size: 3rem; }
+  font-size: 3rem;
+  font-family: "Titillium Web", sans-serif; }
 
-p {
+h3 {
+  font-size: 2.5rem; }
+
+h4 {
+  font-size: 2rem;
+  line-height: 0px; }
+
+p, label {
   font-size: 1.8rem; }
 
 input {
   font-size: 1.4rem; }
+
+.notBolded {
+  font-weight: normal; }
+
+.capitalize {
+  text-transform: capitalize; }
 
 .startGame img {
   width: 100%;
@@ -172,6 +186,7 @@ input {
   margin: 0 auto;
   width: 50%;
   padding: 10px;
+  height: 40px;
   border-radius: 10px;
   text-align: center;
   background-color: #ffcc00; }
@@ -239,8 +254,9 @@ input {
   flex-direction: column;
   justify-content: center;
   align-content: center; }
-  .answerForm h3 {
-    font: size; }
+
+.questionText {
+  color: #ffcc00; }
 
 label {
   display: block;
@@ -265,7 +281,8 @@ input:focus + label {
 .right, .wrong {
   text-align: center; }
   .right h1, .wrong h1 {
-    color: white; }
+    color: white;
+    letter-spacing: 2px; }
   .right img, .wrong img {
     width: 100%; }
 
@@ -299,7 +316,8 @@ body {
 
 .wrapper {
   max-width: 320px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 2%; }
 
 .mainHeading {
   padding-top: 50px; }
@@ -308,5 +326,9 @@ body {
   display: flex;
   justify-content: flex-end; }
 
+.timerScore {
+  margin-top: 10px; }
+
 .timer, .score {
-  margin: 5px 10px; }
+  margin: 5px 10px;
+  color: hotpink; }
