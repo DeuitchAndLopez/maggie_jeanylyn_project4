@@ -316,11 +316,11 @@ app.displayQuestion = function (questions) {
             $(app.answerContainer).addClass("hide")
             if (app.userValueChoice === app.correctAnswer) {
                 app.score = app.score + goodQuestions[randomNum].value;
-                $(app.scoreText).text(`${app.score}`)
+                $(app.scoreText).text(`Score: $${app.score}`)
                 $(app.right).removeClass("hide")
             } else {
                 app.score = app.score - goodQuestions[randomNum].value;
-                $(app.scoreText).text(`${app.score}`)
+                $(app.scoreText).text(`Score: $${app.score}`)
                 $(app.wrong).removeClass("hide")
             }
         })

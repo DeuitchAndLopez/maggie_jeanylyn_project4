@@ -163,9 +163,14 @@ p {
 input {
   font-size: 1.4rem; }
 
+<<<<<<< HEAD
+body {
+  background-color: #060ce9; }
+=======
 .startGame img {
   width: 100%;
   margin-top: -25px; }
+>>>>>>> 5de66cf92109a68638adc61e8340be62f86d6b13
 
 .button {
   display: block;
@@ -181,6 +186,10 @@ input {
   margin: 0 auto;
   margin-top: 50px;
   text-align: center; }
+
+.alex {
+  margin-top: 50px;
+  fill: black; }
 
 .categoryTitle {
   margin: 20px 0; }
@@ -198,11 +207,39 @@ input {
       border: 1px solid #ffcc00; }
 
 .category {
-  display: none; }
+  position: fixed;
+  opacity: 0; }
+  .category:focus + label {
+    border: 1px solid #ffcc00; }
 
 .submitCategory {
   margin: 20px; }
 
+<<<<<<< HEAD
+.valueTitle {
+  margin: 20px 0; }
+
+.valueChoice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .valueChoice label {
+    display: block;
+    padding: 2%;
+    width: 100%; }
+    .valueChoice label:hover {
+      border: 1px solid #ffcc00; }
+
+.value {
+  position: fixed;
+  opacity: 0; }
+  .value:focus + label {
+    border: 1px solid #ffcc00; }
+
+.submitDifficulty {
+  margin: 20px; }
+=======
 .answerForm {
   display: flex;
   flex-direction: column;
@@ -230,6 +267,7 @@ input:focus + label {
 
 .submitAnswer {
   margin-top: 20px; }
+>>>>>>> 5de66cf92109a68638adc61e8340be62f86d6b13
 
 .right, .wrong {
   text-align: center; }

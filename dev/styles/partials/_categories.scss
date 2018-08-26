@@ -4,31 +4,36 @@
 
 //category titles
 .categoryChoice {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-       label {
-           display: block;
-           // text-align: center;
-           padding: 2%;
-           width: 100%;
-           // background-color: yellow;
+        label {
+            display: block;
+            // text-align: center;
+            padding: 2%;
+            width: 100%;
+            // background-color: yellow;
 
-               &:hover{
-                   border: 1px solid $jeopardyYellow;
-           }
-       }
+                &:hover{
+                    border: 1px solid $jeopardyYellow;
+                }
+
+        }
 
 }
 
 //hide radio buttons
 .category {
-   display: none;
+    position: fixed;
+    opacity: 0;
+        &:focus + label {
+            border: 1px solid $jeopardyYellow;
+        }
 }
 
 //submit button
 .submitCategory {
-   margin: 20px;
+    margin: 20px;
 }
