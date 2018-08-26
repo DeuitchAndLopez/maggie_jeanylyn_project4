@@ -105,7 +105,7 @@ app.events = function () {
         $(app.timerScore).removeClass("hide").addClass("flex");
         $(app.categoryContainer).removeClass("hide");
         $(app.startGame).addClass("hide");
-        app.timer(2);
+        app.timer(120);
     })
 
     // storing the category value
