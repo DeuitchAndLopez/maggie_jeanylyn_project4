@@ -73,15 +73,13 @@ app.answerForm = $(".answerForm");
 app.right = $(".right");
 app.wrong = $(".wrong");
 app.gameOver = $(".gameOver");
+app.finalScore = $(".finalScore")
 
 
 app.categoryContainer = $(".categoryContainer");
 app.valueContainer = $(".valueContainer");
 app.questionContainer = $(".questionContainer");
 app.answerContainer = $(".answerContainer");
-
-
-
 
 
 // ==============
@@ -137,7 +135,7 @@ app.events = function () {
         $(app.timerScore).removeClass("hide");
         $(app.categoryContainer).removeClass("hide");
         $(app.startGame).addClass("hide");
-        app.timer(120);
+        app.timer(10);
     })
 
     $(app.category).on("click", function () {
@@ -201,6 +199,8 @@ app.timer = function(seconds) {
             $(app.right).addClass("hide");
             $(app.wrong).addClass("hide");
             $(app.gameOver).removeClass("hide");
+ // !!! this isn't cached           
+            $(app.finalScore).append(`Your score was <span>${app.score}</span>`)
         
         }
 
@@ -230,8 +230,8 @@ app.displayQuestion = function (questions) {
     // based on that random number 
     let randomNum = Math.floor(Math.random() * goodQuestions.length);
     // append the random question in our index page 
-    const title = $("<h3>").text(goodQuestions[randomNum].category.title);
-    const value = $("<h4>").text(app.userValueChoice);
+    const title = $("<h3>").text(`Category: ${goodQuestions[randomNum].category.title}`);
+    const value = $("<h3>").text(`Wager: ${app.userValueChoice}`);
     const question = $("<h2>").text(goodQuestions[randomNum].question);
 
     // an array with the results from .....??????
@@ -278,8 +278,8 @@ app.displayQuestion = function (questions) {
 
         // this takes the new Set and makes it into an array
         let backToRegArray = Array.from(uniqueAnswers);
-        console.log("This is a regular array again");
-        console.log(backToRegArray);
+        // console.log("This is a regular array again");
+        // console.log(backToRegArray);
 
         // looping over regular array 
         // to make sure we only have 5 answers 
@@ -298,7 +298,7 @@ app.displayQuestion = function (questions) {
 
         }
         // appending the submit button 
-        $(app.answerForm).append(`<input type="submit" value="Submit Answer" class="submitAnswer">`);
+        $(app.answerForm).append(`<input type="submit" value="Submit Answer" class="submitAnswer button">`);
         // grab the value of what they chose 
         // and compare to value of the correct answer 
         // if it matches score increase 

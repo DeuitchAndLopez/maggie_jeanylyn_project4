@@ -10,14 +10,17 @@
 
 // testing delete this!
 
-
+body {
+    // background-color: rgb(6,12,233);
+    background-color: $jeopardyBlue;
+}
 
 .hide {
     display: none;
 }
 
 .wrapper {
-    width: 800px;
+    max-width: 320px;
     margin: 0 auto;
 }
 
