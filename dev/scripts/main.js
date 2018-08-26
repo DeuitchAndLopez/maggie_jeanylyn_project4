@@ -73,7 +73,7 @@ app.answerForm = $(".answerForm");
 app.right = $(".right");
 app.wrong = $(".wrong");
 app.gameOver = $(".gameOver");
-app.finalScore = $(".finalScore")
+app.finalScore = $(".finalScore");
 
 
 app.categoryContainer = $(".categoryContainer");
@@ -132,10 +132,10 @@ app.events = function () {
     $(app.startButton).on("click", function(e){
         e.preventDefault();
         console.log('click');
-        $(app.timerScore).removeClass("hide");
+        $(app.timerScore).removeClass("hide").addClass("flex");
         $(app.categoryContainer).removeClass("hide");
         $(app.startGame).addClass("hide");
-        app.timer(60);
+        app.timer(3200);
     })
 
     $(app.category).on("click", function () {
@@ -294,7 +294,7 @@ app.displayQuestion = function (questions) {
 
         // for every answer append it to the page 
         for (let answer of backToRegArray) {
-            $(app.answerForm).append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`)
+            $(app.answerForm).append(`<input type ="radio" name="answers" value="${answer}" id="${answer}" class="answers"><label for="${answer}">${answer}</label>`);
 
         }
         // appending the submit button 
@@ -345,8 +345,8 @@ app.displayQuestion = function (questions) {
     const displayAnswers = function () {
         // this is the correct answer 
         app.correctAnswer = goodQuestions[randomNum].answer;
-        console.log("This is the right answer");
-        console.log(app.correctAnswer);
+        // console.log("This is the right answer");
+        // console.log(app.correctAnswer);
 
         // pushing the correct answer into result 
         result.push(app.correctAnswer);
