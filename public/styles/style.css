@@ -179,7 +179,8 @@ h2 {
   font-family: "Titillium Web", sans-serif; }
 
 h3 {
-  font-size: 2.5rem; }
+  font-size: 2.3rem;
+  line-height: 2.7rem; }
 
 h4 {
   font-size: 2rem; }
@@ -220,16 +221,24 @@ input {
       width: 70%; } }
 
 .alex {
-  margin-top: 50px;
+  margin-top: 25px;
   fill: black; }
+  @media (min-width: 620px) {
+    .alex {
+      margin: 25px 75px 0 75px;
+      width: 70%; } }
+  @media (min-width: 800px) {
+    .alex {
+      margin: 50px 120px 0 120px; } }
 
 .categoryTitle {
-  margin: 20px 0; }
+  margin-top: -15px; }
   @media (min-width: 800px) {
     .categoryTitle {
       text-align: center; } }
 
 .categoryChoice {
+  margin-top: -15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -260,7 +269,7 @@ input {
   margin: 20px; }
 
 .valueTitle {
-  margin: 20px 0; }
+  margin-top: -10px; }
 
 .valueChoice {
   display: flex;
@@ -283,18 +292,27 @@ input {
 .submitDifficulty {
   margin: 20px; }
 
+.wager {
+  margin-top: -20px; }
+
 .answerForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center; }
 
+.title {
+  margin-top: -25px; }
+
 .questionText {
   color: #ffcc00; }
+  @media (min-width: 800px) {
+    .questionText {
+      width: 70%; } }
 
 label {
   display: block;
-  padding: 2%;
+  padding: 2% 2% 2% 0;
   width: 100%; }
   label:hover {
     border: 1px solid #ffcc00; }
@@ -317,19 +335,23 @@ input:focus + label {
   .right h1, .wrong h1 {
     color: white;
     letter-spacing: 2px;
-    margin: 20px 0; }
-  .right img, .wrong img {
-    width: 90%; }
+    font-size: 5rem; }
+
+.right h1 {
+  margin-bottom: 20px; }
 
 .gameOver {
   text-align: center; }
   .gameOver p {
-    width: 70%;
+    width: 80%;
     line-height: 30px;
     margin: 0 auto; }
   .gameOver h1 {
     font-size: 4rem;
-    color: white; }
+    color: white;
+    margin-top: -25px; }
+  .gameOver h2 {
+    margin: 5px 0; }
   .gameOver input {
     margin-top: 20px; }
   .gameOver img {
@@ -362,7 +384,7 @@ body {
       width: 800px; } }
 
 .mainHeading {
-  padding-top: 25px; }
+  padding-top: 10px; }
 
 .flex {
   display: flex;
@@ -388,3 +410,6 @@ body {
   @media (min-width: 620px) {
     .score {
       margin-left: 10px; } }
+
+img {
+  max-width: 100%; }
