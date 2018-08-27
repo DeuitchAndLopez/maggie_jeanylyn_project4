@@ -79,7 +79,6 @@ app.getClues = function (categoryID, valueID) {
 // THAT MATCH THE CATEGORY
 // ==============
 
-
 app.getAnswers = function (categoryID) {
     $.ajax({
         url: "http://jservice.io/api/clues",
