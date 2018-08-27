@@ -203,7 +203,7 @@ input {
 .button {
   display: block;
   margin: 0 auto;
-  width: 50%;
+  width: 55%;
   padding: 10px;
   height: 40px;
   border-radius: 10px;
@@ -319,7 +319,7 @@ input:focus + label {
     letter-spacing: 2px;
     margin: 20px 0; }
   .right img, .wrong img {
-    width: 100%; }
+    width: 90%; }
 
 .gameOver {
   text-align: center; }
@@ -332,6 +332,8 @@ input:focus + label {
     color: white; }
   .gameOver input {
     margin-top: 20px; }
+  .gameOver img {
+    width: 90%; }
 
 .answers input {
   display: block;

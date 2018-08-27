@@ -58,6 +58,7 @@ app.answerContainer = $(".answerContainer");
 // BASED ON CATEGORY AND VALUE
 // ==============
 
+
 app.getClues = function (categoryID, valueID) {
     $.ajax({
         url: "http://jservice.io/api/clues",
