@@ -64,16 +64,19 @@ app.getClues = function (categoryID, valueID) {
     url: 'https://proxy.hackeryou.com',
     //OR url: 'https://proxy.hackeryou.com',
     dataResponse: 'json',
+    paramsSerializer: function (params) {
+        return Qs.stringify(params, { count: 100, value: valueID, category: categoryID}, )
+    },
     params: {
         reqUrl: 'http://api.site.com/api',
-        proxyHeaders: {
-            data: {
-                count: 100,
-                value: valueID,
-                category: categoryID,
-            }
-        },
-        xmlToJSON: false
+        // proxyHeaders: {
+        //     // data: {
+        //     //     count: 100,
+        //     //     value: valueID,
+        //     //     category: categoryID,
+        //     // }
+        // },
+        xmlToJSON: true
     }
     })
 }.then((res) => {
@@ -105,15 +108,18 @@ app.getAnswers = function(categoryID) {
     method: 'GET',
     url: 'https://proxy.hackeryou.com',
     dataResponse: 'json',
+    paramsSerializer: function (params) {
+        return Qs.stringify(params, { count: 100, category: categoryID }, )
+    },
     params: {
         reqUrl: 'http://jservice.io/api/clues',
-        proxyHeaders: {
-            data: {
-            count: 100,
-            category: categoryID
-        }
-        },
-        xmlToJSON: false
+        // proxyHeaders: {
+        //     data: {
+        //     count: 100,
+        //     category: categoryID
+        // }
+        // },
+        xmlToJSON: true
     }
     })
     }.then((res) => {
