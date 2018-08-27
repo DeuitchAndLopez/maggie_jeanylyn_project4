@@ -58,44 +58,21 @@ app.answerContainer = $(".answerContainer");
 // BASED ON CATEGORY AND VALUE
 // ==============
 
+
 app.getClues = function (categoryID, valueID) {
-    axios({
-    method: 'GET',
-    url: 'https://proxy.hackeryou.com',
-    //OR url: 'https://proxy.hackeryou.com',
-    dataResponse: 'json',
-    paramsSerializer: function (params) {
-        return Qs.stringify(params, { count: 100, value: valueID, category: categoryID}, )
-    },
-    params: {
-        reqUrl: 'http://api.site.com/api',
-        // proxyHeaders: {
-        //     // data: {
-        //     //     count: 100,
-        //     //     value: valueID,
-        //     //     category: categoryID,
-        //     // }
-        // },
-        xmlToJSON: true
-    }
+    $.ajax({
+        url: "http://jservice.io/api/clues",
+        method: "GET",
+        data: {
+            count: 100,
+            value: valueID,
+            category: categoryID,
+        }
     })
-}.then((res) => {
-        app.displayQuestion(res);
-    });
-// app.getClues = function (categoryID, valueID) {
-//     $.ajax({
-//         url: "http://jservice.io/api/clues",
-//         method: "GET",
-//         data: {
-//             count: 100,
-//             value: valueID,
-//             category: categoryID,
-//         }
-//     })
-//         .then((res) => {
-//             app.displayQuestion(res);
-//         });
-// }
+        .then((res) => {
+            app.displayQuestion(res);
+        });
+}
 
 // ==============
 // GETTING INFO FROM THE API
@@ -103,43 +80,19 @@ app.getClues = function (categoryID, valueID) {
 // THAT MATCH THE CATEGORY
 // ==============
 
-app.getAnswers = function(categoryID) {
-    axios({
-    method: 'GET',
-    url: 'https://proxy.hackeryou.com',
-    dataResponse: 'json',
-    paramsSerializer: function (params) {
-        return Qs.stringify(params, { count: 100, category: categoryID }, )
-    },
-    params: {
-        reqUrl: 'http://jservice.io/api/clues',
-        // proxyHeaders: {
-        //     data: {
-        //     count: 100,
-        //     category: categoryID
-        // }
-        // },
-        xmlToJSON: true
-    }
+app.getAnswers = function (categoryID) {
+    $.ajax({
+        url: "http://jservice.io/api/clues",
+        method: "GET",
+        data: {
+            count: 100,
+            category: categoryID
+        }
     })
-    }.then((res) => {
-        // console.log(res);
-        app.wrongAnswers(res, 6)
-    });
-
-// app.getAnswers = function (categoryID) {
-//     $.ajax({
-//         url: "http://jservice.io/api/clues",
-//         method: "GET",
-//         data: {
-//             count: 100,
-//             category: categoryID
-//         }
-//     })
-//         .then((res) => {
-//             app.wrongAnswers(res, 6);
-//         });
-// }
+        .then((res) => {
+            app.wrongAnswers(res, 6);
+        });
+}
 
 // ===============
 // USER CHOOSES CATEGORY AND VALUE
@@ -152,7 +105,7 @@ app.events = function () {
         $(app.timerScore).removeClass("hide").addClass("flex");
         $(app.categoryContainer).removeClass("hide");
         $(app.startGame).addClass("hide");
-        app.timer(2);
+        app.timer(120);
     })
 
     // storing the category value
