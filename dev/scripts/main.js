@@ -73,7 +73,7 @@ app.getClues = function (categoryID, valueID) {
                 category: categoryID,
             }
         },
-        xmlToJSON: false
+        xmlToJSON: true
     }
     })
 }.then((res) => {
@@ -113,7 +113,7 @@ app.getAnswers = function(categoryID) {
             category: categoryID
         }
         },
-        xmlToJSON: false
+        xmlToJSON: true
     }
     })
     }.then((res) => {
