@@ -61,7 +61,7 @@ app.answerContainer = $(".answerContainer");
 app.getClues = function (categoryID, valueID) {
     axios({
     method: 'GET',
-    url: 'http://proxy.hackeryou.com',
+    url: 'https://proxy.hackeryou.com',
     //OR url: 'https://proxy.hackeryou.com',
     dataResponse: 'json',
     params: {
