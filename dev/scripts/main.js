@@ -58,21 +58,41 @@ app.answerContainer = $(".answerContainer");
 // BASED ON CATEGORY AND VALUE
 // ==============
 
-
 app.getClues = function (categoryID, valueID) {
-    $.ajax({
-        url: "http://jservice.io/api/clues",
-        method: "GET",
-        data: {
-            count: 100,
-            value: valueID,
-            category: categoryID,
-        }
+    axios({
+    method: 'GET',
+    url: 'http://proxy.hackeryou.com',
+    //OR url: 'https://proxy.hackeryou.com',
+    dataResponse: 'json',
+    params: {
+        reqUrl: 'http://api.site.com/api',
+        proxyHeaders: {
+            data: {
+                count: 100,
+                value: valueID,
+                category: categoryID,
+            }
+        },
+        xmlToJSON: false
+    }
     })
-        .then((res) => {
-            app.displayQuestion(res);
-        });
-}
+}.then((res) => {
+        app.displayQuestion(res);
+    });
+// app.getClues = function (categoryID, valueID) {
+//     $.ajax({
+//         url: "http://jservice.io/api/clues",
+//         method: "GET",
+//         data: {
+//             count: 100,
+//             value: valueID,
+//             category: categoryID,
+//         }
+//     })
+//         .then((res) => {
+//             app.displayQuestion(res);
+//         });
+// }
 
 // ==============
 // GETTING INFO FROM THE API
@@ -80,19 +100,40 @@ app.getClues = function (categoryID, valueID) {
 // THAT MATCH THE CATEGORY
 // ==============
 
-app.getAnswers = function (categoryID) {
-    $.ajax({
-        url: "http://jservice.io/api/clues",
-        method: "GET",
-        data: {
+app.getAnswers = function(categoryID) {
+    axios({
+    method: 'GET',
+    url: 'https://proxy.hackeryou.com',
+    dataResponse: 'json',
+    params: {
+        reqUrl: 'http://jservice.io/api/clues',
+        proxyHeaders: {
+            data: {
             count: 100,
             category: categoryID
         }
+        },
+        xmlToJSON: false
+    }
     })
-        .then((res) => {
-            app.wrongAnswers(res, 6);
-        });
-}
+    }.then((res) => {
+        // console.log(res);
+        app.wrongAnswers(res, 6)
+    });
+
+// app.getAnswers = function (categoryID) {
+//     $.ajax({
+//         url: "http://jservice.io/api/clues",
+//         method: "GET",
+//         data: {
+//             count: 100,
+//             category: categoryID
+//         }
+//     })
+//         .then((res) => {
+//             app.wrongAnswers(res, 6);
+//         });
+// }
 
 // ===============
 // USER CHOOSES CATEGORY AND VALUE
