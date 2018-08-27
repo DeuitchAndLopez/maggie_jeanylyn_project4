@@ -1,13 +1,18 @@
 .gameOver {
     text-align: center;
     p {
-        width: 70%;
+        width: 80%;
         line-height: 30px;
         margin: 0 auto;
     }
     h1 {
         font-size: 4rem;
         color: white;
+        margin-top: -25px;
+    }
+
+    h2 {
+        margin: 5px 0;
     }
     input {
         margin-top: 20px;

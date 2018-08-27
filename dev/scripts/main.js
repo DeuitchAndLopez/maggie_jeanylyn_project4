@@ -193,7 +193,7 @@ app.displayQuestion = function (questions) {
     let randomNum = Math.floor(Math.random() * goodQuestions.length);
     // append the random question in our index page 
     const title = $(`<h4 class="capitalize">`).text(`Category: ${goodQuestions[randomNum].category.title}`);
-    const value = $("<h4>").text(`Wager: $${app.userValueChoice}`);
+    const value = $(`<h4 class="wager">`).text(`Wager: $${app.userValueChoice}`);
     const question = $(`<h3 class="questionText">`).text(goodQuestions[randomNum].question);
 
     // an array with the results to help get random answers
@@ -277,7 +277,7 @@ app.displayQuestion = function (questions) {
                 app.score = app.score - goodQuestions[randomNum].value;
                 $(app.scoreText).text(`Score: $${app.score}`)
                 $(app.wrong).removeClass("hide")
-                $(app.rightAnswer).text(`The right answer was ${app.correctAnswer}`)
+                $(app.rightAnswer).text(`The right answer was: ${app.correctAnswer}`)
             }
         })
 

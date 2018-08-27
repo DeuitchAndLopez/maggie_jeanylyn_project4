@@ -27,6 +27,13 @@
 }
 
 .alex {
-    margin-top: 50px;
+    margin-top: 25px;
     fill: black;
+    @include breakPoint(medium){
+        margin: 25px 75px 0 75px;
+        width: 70%;
+    }
+    @include breakPoint(large){
+        margin: 50px 120px 0 120px;
+    }
 }

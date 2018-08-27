@@ -1,4 +1,8 @@
 
+.wager {
+    margin-top: -20px;
+}
+
 .answerForm {
     display: flex;
     flex-direction: column;
@@ -7,14 +11,22 @@
    
 }
 
+.title {
+    margin-top: -25px;
+}
+
 .questionText {
      color: $jeopardyYellow;
+     @include breakPoint(large){
+         width: 70%;
+     }
 }
 
 label {
     display: block;
-    padding: 2%;
+    padding: 2% 2% 2% 0;
     width: 100%;
+    // margin: 
         &:hover{
             border: 1px solid $jeopardyYellow; 
     }

@@ -47,13 +47,27 @@ h1 {
    }
 }
 
+// .right, .wrong {
+//     h1 {
+//         font-size: 3rem;
+//         @include breakPoint(medium){
+//             font-size: 4rem;
+//         }
+//         @include breakPoint(large){
+//             font-size: 5rem;
+//         }
+//     }
+
+// }
+
 h2 {
     font-size: 3rem; 
      font-family: $mainTitle;
 }
 
 h3 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
+    line-height: 2.7rem;
 }
 
 h4 {
